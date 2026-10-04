@@ -75,11 +75,6 @@ export const profileConfig: ProfileConfig = {
 			url: "https://github.com/MrSibe",
 		},
 		{
-			name: "Email",
-			icon: "fa6-solid:envelope",
-			url: "mailto:mrsibe@qq.com",
-		},
-		{
 			name: "Bilibili",
 			icon: "fa6-brands:bilibili",
 			url: "https://space.bilibili.com/386324877",

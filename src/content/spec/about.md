@@ -10,7 +10,6 @@
 - [文章](/archive/)
 - [项目](#项目)
 - [友链](/friends/)
-- [邮箱](mailto:mrsibe@qq.com)
 
 ## 项目
 
