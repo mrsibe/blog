@@ -1,7 +1,7 @@
 ---
 title: CS 61B | Defining and Using Classes
 published: 2025-11-03 10:56:24+08:00
-description: CS 61B 学习笔记：Java 中类、对象、实例方法、静态方法和构造函数的区别。
+description: CS 61B 学习笔记：围绕 Java 中类的定义与使用，区分静态方法和实例方法，讲解构造函数、数组、静态变量以及 main 函数和命令行参数的用法。
 tags:
 - Java
 - 面向对象

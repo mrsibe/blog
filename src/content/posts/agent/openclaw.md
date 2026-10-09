@@ -1,7 +1,7 @@
 ---
 title: 从 OpenClaw 到 Hermes Agent：我对记忆、Skill 和 Agent 架构的理解
 published: 2026-04-17 06:00:00+08:00
-description: 用了 OpenClaw 和 Hermes Agent 一段时间后，我重新整理了记忆、Skill、工具调用与执行环境之间的关系。
+description: 用了 OpenClaw 和 Hermes Agent 一段时间后，我重新整理了记忆、Skill、工具调用与执行环境之间的关系，并结合两者的设计差异，谈谈我对 Agent 模块整合方式和未来演进路线的一些理解。
 tags:
 - Agent
 - OpenClaw

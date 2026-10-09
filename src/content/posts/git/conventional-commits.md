@@ -1,7 +1,7 @@
 ---
 title: Git | 约定式提交规范
 published: 2025-11-18 17:26:35+08:00
-description: 整理 Conventional Commits 的基本格式，以及我常用的提交类型。
+description: 整理 Conventional Commits 约定式提交规范：说明提交信息的标准格式与各部分含义，列出我常用的提交类型，并给出可以直接参考的示例。
 tags:
 - Git
 category: 开发工具

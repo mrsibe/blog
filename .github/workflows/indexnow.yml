@@ -1,0 +1,22 @@
+name: IndexNow
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Wait for deployment
+        run: sleep 180
+
+      - name: Submit sitemap to IndexNow
+        run: node scripts/indexnow.mjs

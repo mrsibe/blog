@@ -1,7 +1,7 @@
 ---
 title: CS 61B | 导论
 published: 2025-10-24 15:30:00+08:00
-description: 我开始学习 Berkeley CS 61B 时整理的课程资源、学习方式和环境准备。
+description: 开始学习 Berkeley CS 61B 时的准备记录：整理课程定位、推荐的学习方法与节奏、常用学习资源，以及本地 Java 开发环境的搭建过程。
 tags:
 - Java
 - 数据结构

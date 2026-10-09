@@ -1,7 +1,7 @@
 ---
 title: MIT 6.S081 | Lab util
 published: 2025-09-28 18:02:33+08:00
-description: 我完成 MIT 6.S081 Lab util 时留下的实现记录，涉及系统调用、进程和管道。
+description: 我完成 MIT 6.S081 Lab util 时的实现记录：围绕 sleep 和 pingpong 两个练习，梳理系统调用、进程与管道的工作方式，并给出具体的解题思路和代码。
 tags:
 - 操作系统
 - Unix

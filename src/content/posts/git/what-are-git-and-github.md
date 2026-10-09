@@ -1,7 +1,7 @@
 ---
 title: Git | Git 和 GitHub 是什么
 published: 2025-11-17 12:00:00+08:00
-description: 用几个简单场景解释 Git 为什么需要版本、分支和远程仓库，以及 GitHub 在其中做什么。
+description: 用几个简单场景解释 Git 为什么需要版本管理和分支，远程仓库解决了什么问题，以及 GitHub 在这套工作流里扮演的角色和它提供的协作能力。
 tags:
 - Git
 - GitHub

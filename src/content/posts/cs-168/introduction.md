@@ -1,7 +1,7 @@
 ---
 title: CS 168 | 导论
 published: 2025-10-07 21:31:58+08:00
-description: 我的 Berkeley CS 168 学习笔记，从互联网的基本结构开始理解计算机网络。
+description: 我的 Berkeley CS 168 计算机网络学习笔记开篇：从互联网的基本结构讲起，梳理分层模型、协议、报头与端到端原则，帮助理解网络设计背后的取舍。
 tags:
 - 网络
 - 公开课
@@ -63,8 +63,6 @@ draft: false
 
 应用层使得互联网可以支持不同的应用，例如收邮件，下载视频等等。如果没有第七层，恐怕互联网就只能有一种用途，换句话说应用层使得互联网有更多的应用。
 
-![{6C0F8233-085A-446C-B61A-4219906F466A}.png](https://raw.githubusercontent.com/MrSibe/obsidian_images/main/%7B6C0F8233-085A-446C-B61A-4219906F466A%7D.png)
-
 会话层（第五层）原本应该将不同的数据流组装成一个会话（例如，加载各种图像和广告来形成一个网页），而表示层（第六层）原本应该帮助用户可视化数据。如今，这些层的功能主要在第七层中实现，因此直接被跳过了。
 
 ## 三、报头
@@ -74,8 +72,6 @@ draft: false
 在第三层网络层我们提出了一个问题：数据包应该经过什么路径发送？
 
 这件事关乎交换机或者路由器，我们应该提前告诉他们这个数据包往哪发送。实现方法就是在数据前面加上**报头（headers）**。而数据在这里我们就叫它**载荷（payload）**。
-
-![{2983D271-4492-4366-8ED4-78F43509FEED}.png](https://raw.githubusercontent.com/MrSibe/obsidian_images/main/%7B2983D271-4492-4366-8ED4-78F43509FEED%7D.png)
 
 每一个网络设备都需要遵循一个报头标准，就像世界通用一个语言——英语，这样数据包的传输才不会乱套。
 
@@ -106,8 +102,6 @@ draft: false
 
 互联网层次中的一层可以只有一个协议，也可以有很多很多协议。
 
-![](https://raw.githubusercontent.com/MrSibe/obsidian_images/main/%7B3EB4AD68-040E-47B5-8BAB-17F14BDF8A28%7D.png)
-
 现代互联网的具体协议如上图所示，形成了一个上下宽中间窄的图像。可以发现在第三层只有 IP 协议，互联网的每一个人都必须使用 IP 协议才能传输数据。
 
 ### 解复用
@@ -130,11 +124,7 @@ draft: false
 
 答案是：网络资源是**统计复用**的，这意味着我们会**根据用户的需求动态分配资源**，而不是将固定份额的资源分配给用户。
 
-![{D2E5042C-D245-43D1-A025-47B5C83CFCCF}.png](https://raw.githubusercontent.com/MrSibe/obsidian_images/main/%7BD2E5042C-D245-43D1-A025-47B5C83CFCCF%7D.png)
-
 统计复用能够工作的前提是：**在实践中，总需求的峰值远小于各峰值需求的总和。**
-
-![{6EE0A2E7-3354-4658-80A6-9BAB9357A102}.png](https://raw.githubusercontent.com/MrSibe/obsidian_images/main/%7B6EE0A2E7-3354-4658-80A6-9BAB9357A102%7D.png)
 
 统计复用是一种具有权衡的设计选择，我们不会为最坏情况（所有需求同时达到峰值）进行配置。峰值仍可能同时发生，这将导致数据包延迟或丢失。
 
@@ -146,10 +136,6 @@ draft: false
 
 1. **尽力而为**：数据包发出去就不管了。尽力而为的最佳设计称为**分组交换**：交换机独立地查看每个分组，并将分组转发到离目的地更近的地方。交换机不会考虑流或预留。
 2. **预留**：在流开始时，用户明确请求并预留所需的带宽。数据发送完毕后，资源可以被释放供其他人预留。预留的最佳设计，称为**电路交换**。两台主机直接搭建好数据传递的通道之后再进行传输。
-
-![{40E1B8B1-F3DD-4C8B-BC75-A2D3ABE87C59}.png](https://raw.githubusercontent.com/MrSibe/obsidian_images/main/%7B40E1B8B1-F3DD-4C8B-BC75-A2D3ABE87C59%7D.png)
-
-![{434360BD-CE9C-4C10-8EE4-744B5DA1DCE4}.png](https://raw.githubusercontent.com/MrSibe/obsidian_images/main/%7B434360BD-CE9C-4C10-8EE4-744B5DA1DCE4%7D.png)
 
 电路交换和分组交换都体现了统计复用。主要区别在于我们分配资源的粒度：**预留按流分配，尽力而为按包分配。** 即使在电路交换中，我们也是根据预留动态分配资源。我们不是预先为所有可能存在的流进行预留。
 
@@ -164,8 +150,6 @@ draft: false
 #### 2. 资源利用效率如何？
 
 分组交换通常更高效。如果每个发送者在整个时间段内以恒定速率发送数据，那么电路交换和分组交换都能充分利用容量；如果每个发送者的速率随时间变化，那么分组交换能更好地利用带宽。
-
-![{89EE3DEF-DC0D-493B-91EC-8CA8B3A42512}.png](https://raw.githubusercontent.com/MrSibe/obsidian_images/main/%7B89EE3DEF-DC0D-493B-91EC-8CA8B3A42512%7D.png)
 
 一个数据流的突发性是由其峰值速率与平均速率的比值定义的。语音通话通常具有较平滑的比值，如 3:1，而网页浏览通常具有较突发的比值，如 100:1。
 
@@ -197,11 +181,7 @@ draft: false
 
 假设我们有一条带宽为 1 Mbps = 每秒 100 万比特，传播延迟为 1 ms = 0.001 秒的链路。发送一个 bit 需要 0.000001 秒，时序图如下：
 
-![{EA69C190-0080-4ACC-B327-177450EA173F}.png](https://raw.githubusercontent.com/MrSibe/obsidian_images/main/%7BEA69C190-0080-4ACC-B327-177450EA173F%7D.png)
-
 假如发送 800 个 bits，时序图如下：
-
-![{03846435-24F5-4343-9073-C2DCDA829188}.png](https://raw.githubusercontent.com/MrSibe/obsidian_images/main/%7B03846435-24F5-4343-9073-C2DCDA829188%7D.png)
 
 ### 数据包延迟
 
@@ -214,10 +194,6 @@ draft: false
 ### 管道图
 
 还有一种管道图也可以表示链路：
-
-![{2880F008-1D2A-4821-9CC3-9999A9FCFF60}.png](https://raw.githubusercontent.com/MrSibe/obsidian_images/main/%7B2880F008-1D2A-4821-9CC3-9999A9FCFF60%7D.png)
-
-![{3215DA70-3D60-4ED2-8E4A-667C68FD1483}.png](https://raw.githubusercontent.com/MrSibe/obsidian_images/main/%7B3215DA70-3D60-4ED2-8E4A-667C68FD1483%7D.png)
 
 ### 重载链接
 

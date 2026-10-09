@@ -1,7 +1,7 @@
 ---
 title: 不要把决策权外包给 AI
 published: 2026-09-08 15:30:00+08:00
-description: 项目确实在前进，但你对它的理解，有没有一起前进？——从一次 Vibe Coding 实训说起，谈谈为什么决策要留给自己、执行才交给 AI。
+description: 项目确实在前进，但你对它的理解，有没有一起前进？——从一次 Vibe Coding 实训说起，谈谈为什么决策要留给自己、执行才交给 AI，以及怎样把 AI 当作参谋而不是决策者。
 tags:
 - AI
 - Vibe Coding

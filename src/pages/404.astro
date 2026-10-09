@@ -1,0 +1,13 @@
+---
+import MainGridLayout from "@layouts/MainGridLayout.astro";
+---
+
+<MainGridLayout title="页面不存在" description="你访问的页面不存在或已被移动。">
+    <meta slot="head" name="robots" content="noindex" />
+    <div class="card-base px-6 md:px-9 py-14 flex flex-col items-center justify-center text-center w-full mb-4">
+        <div class="text-6xl md:text-7xl font-bold text-[var(--primary)] mb-4">404</div>
+        <h1 class="text-2xl font-bold text-black/90 dark:text-white/90 mb-3 transition">页面不存在</h1>
+        <p class="text-black/60 dark:text-white/60 mb-6 transition">你访问的页面可能已被移动或删除。</p>
+        <a href="/" class="btn-regular rounded-lg px-5 h-10 font-bold active:scale-95 inline-flex items-center">返回首页</a>
+    </div>
+</MainGridLayout>

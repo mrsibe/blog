@@ -1,7 +1,7 @@
 ---
 title: HTTP/1.1 报文长什么样？从请求行到消息体
 published: 2026-04-15 17:15:00+08:00
-description: 拆开一条 HTTP/1.1 请求和响应，看看起始行、字段、空行与消息体分别放了什么。
+description: 拆开一条 HTTP/1.1 请求和响应报文，逐段说明请求行、状态行、首部字段、空行与消息体分别承载什么信息，并解释 Host、Content-Length 等常见字段的作用。
 tags:
 - HTTP
 - 后端基础

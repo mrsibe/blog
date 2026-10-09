@@ -1,7 +1,7 @@
 ---
 title: 我在 MacBook 上常用的开发与效率软件
 published: 2026-01-28 11:00:00+08:00
-description: 记录我在 MacBook 上实际使用的开发工具、AI 助手和系统增强软件。
+description: 记录我在 MacBook 上实际长期使用的软件：包括开发工具、AI 助手与知识管理、系统增强和效率工具，以及办公与影音娱乐类应用，并说明它们各自的用途。
 tags:
 - macOS
 - 效率工具

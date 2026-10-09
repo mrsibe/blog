@@ -1,7 +1,7 @@
 ---
 title: CS 61B | Hello World Java
 published: 2025-11-03 10:47:08+08:00
-description: CS 61B 学习笔记：从 Hello World 开始熟悉 Java 程序的结构、编译和运行。
+description: CS 61B 学习笔记：从 Hello World 和命令行入口开始，熟悉 Java 程序的编译与运行流程，并整理变量、循环、强类型语言和函数定义等基础语法。
 tags:
 - Java
 - 公开课

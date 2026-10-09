@@ -1,0 +1,4 @@
+# Let the CDN cache static HTML so search/AI crawlers get a fast first byte.
+# Deploys purge the edge cache, so s-maxage only bounds staleness between deploys.
+/*
+  Cache-Control: public, max-age=0, s-maxage=3600, must-revalidate
