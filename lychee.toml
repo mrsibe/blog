@@ -1,0 +1,12 @@
+# Check external links in source Markdown; site-relative routes are not files.
+scheme = ["https", "http"]
+timeout = 20
+max_retries = 2
+max_concurrency = 8
+exclude_all_private = true
+include_verbatim = false
+
+# Documentation examples, not publicly reachable websites.
+exclude = [
+  '^https?://(?:[^/]+\.)?example\.(?:com|org|net)(?:[/:]|$)',
+]

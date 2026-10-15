@@ -1,0 +1,74 @@
+---
+import { giscusConfig } from "@/config";
+
+const enabled = Boolean(giscusConfig.repoId && giscusConfig.categoryId);
+---
+
+{enabled && (
+	<section class="card-base p-6 md:p-9 mb-4" aria-label="评论" data-pagefind-ignore>
+		<h2 class="text-xl font-bold mb-6 text-black/90 dark:text-white/90">评论</h2>
+		<giscus-comments
+			data-repo={giscusConfig.repo}
+			data-repo-id={giscusConfig.repoId}
+			data-category={giscusConfig.category}
+			data-category-id={giscusConfig.categoryId}
+			data-lang={giscusConfig.lang}
+		></giscus-comments>
+	</section>
+)}
+
+<script>
+	// Custom element callbacks also run after Swup replaces/caches the page.
+	class GiscusComments extends HTMLElement {
+		private observer?: MutationObserver;
+
+		private get theme() {
+			return document.documentElement.classList.contains("dark") ? "dark" : "light";
+		}
+
+		connectedCallback() {
+			const script = document.createElement("script");
+			script.src = "https://giscus.app/client.js";
+			script.async = true;
+			script.crossOrigin = "anonymous";
+			Object.assign(script.dataset, this.dataset, {
+				mapping: "pathname",
+				strict: "1",
+				reactionsEnabled: "1",
+				emitMetadata: "0",
+				inputPosition: "top",
+				theme: this.theme,
+				loading: "lazy",
+			});
+			this.replaceChildren(script);
+
+			this.observer = new MutationObserver(() => {
+				// Also update the script in case the iframe has not loaded yet.
+				script.dataset.theme = this.theme;
+				this.querySelector<HTMLIFrameElement>("iframe.giscus-frame")?.contentWindow?.postMessage(
+					{ giscus: { setConfig: { theme: this.theme } } },
+					"https://giscus.app",
+				);
+			});
+			this.observer.observe(document.documentElement, {
+				attributes: true,
+				attributeFilter: ["class"],
+			});
+		}
+
+		disconnectedCallback() {
+			this.observer?.disconnect();
+		}
+	}
+
+	if (!customElements.get("giscus-comments")) {
+		customElements.define("giscus-comments", GiscusComments);
+	}
+</script>
+
+<style>
+	giscus-comments {
+		display: block;
+		min-height: 150px;
+	}
+</style>

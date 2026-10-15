@@ -6,6 +6,7 @@ import { pluginLineNumbers } from "@expressive-code/plugin-line-numbers";
 import swup from "@swup/astro";
 import expressiveCode from "astro-expressive-code";
 import icon from "astro-icon";
+import mermaid from "astro-mermaid";
 import { defineConfig } from "astro/config";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeComponents from "rehype-components"; /* Render the custom directive content */
@@ -30,6 +31,14 @@ export default defineConfig({
 	base: "/",
 	trailingSlash: "always",
 	integrations: [
+		mermaid({
+			// Neutral diagrams remain readable in both site themes. The site's
+			// data-theme attribute is reserved for Expressive Code.
+			theme: "neutral",
+			autoTheme: false,
+			enableLog: false,
+			mermaidConfig: { securityLevel: "strict" },
+		}),
 		tailwind({
 			nesting: true,
 		}),

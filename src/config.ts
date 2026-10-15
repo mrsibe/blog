@@ -87,6 +87,16 @@ export const profileConfig: ProfileConfig = {
 	],
 };
 
+// Copy these public IDs from https://giscus.app/zh-CN after enabling Discussions.
+// Comments stay hidden until all required values are configured.
+export const giscusConfig = {
+	repo: "mrsibe/blog",
+	repoId: import.meta.env.PUBLIC_GISCUS_REPO_ID || "",
+	category: import.meta.env.PUBLIC_GISCUS_CATEGORY || "Announcements",
+	categoryId: import.meta.env.PUBLIC_GISCUS_CATEGORY_ID || "",
+	lang: "zh-CN",
+};
+
 export const licenseConfig: LicenseConfig = {
 	enable: true,
 	name: "CC BY-NC-SA 4.0",
