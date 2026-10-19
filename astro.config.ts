@@ -1,5 +1,5 @@
 import { rehypeHeadingIds } from '@astrojs/markdown-remark'
-import vercel from '@astrojs/vercel'
+import mermaid from 'astro-mermaid'
 import AstroPureIntegration from 'astro-pure'
 import { defineConfig, fontProviders, svgoOptimizer } from 'astro/config'
 import rehypeKatex from 'rehype-katex'
@@ -25,26 +25,14 @@ import config from './src/site.config.ts'
 // https://astro.build/config
 export default defineConfig({
   // [Basic]
-  site: 'https://astro-pure.js.org',
-  // Deploy to a sub path
-  // https://astro-pure.js.org/docs/setup/deployment#platform-with-base-path
-  // base: '/astro-pure/',
+  site: 'https://mrsibe.top',
   trailingSlash: 'never',
-  // root: './my-project-directory',
   server: { host: true },
   // https://docs.astro.build/en/guides/prefetch/
   prefetch: {
     // prefetchAll: true,
     defaultStrategy: 'viewport'
   },
-
-  // [Adapter]
-  // https://docs.astro.build/en/guides/deploy/
-  adapter: vercel({ imageService: true }),
-  output: 'server',
-  // Local (standalone)
-  // adapter: node({ mode: 'standalone' }),
-  // output: 'server',
 
   // [Assets]
   image: {
@@ -119,6 +107,13 @@ export default defineConfig({
 
   // [Integrations]
   integrations: [
+    mermaid({
+      // Neutral diagrams remain readable in both site themes.
+      theme: 'neutral',
+      autoTheme: false,
+      enableLog: false,
+      mermaidConfig: { securityLevel: 'strict' }
+    }),
     // astro-pure will automatically add sitemap, mdx & unocss
     // sitemap(),
     // mdx(),

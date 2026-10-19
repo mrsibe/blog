@@ -33,8 +33,9 @@ const socialImageURL = new URL(ogImage ? ogImage : config.socialCard, Astro.url)
 {/* Font preloads */}
 <Font cssVariable='--font-satoshi' preload={[{ subset: 'latin', style: 'normal' }]} />
 <style>
+  /* `Noto Sans SC Variable` is imported in BaseLayout.astro and covers CJK glyphs. */
   body {
-    font-family: var(--font-satoshi);
+    font-family: var(--font-satoshi), 'Noto Sans SC Variable', ui-sans-serif, system-ui, sans-serif;
   }
 </style>
 
