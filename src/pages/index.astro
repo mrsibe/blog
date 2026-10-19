@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets'
 
+import { GithubCard } from 'astro-pure/advanced'
 import { PostPreview } from 'astro-pure/components/pages'
 import { getBlogCollection, sortMDByDate } from 'astro-pure/server'
 import { Button, Icon, Label } from 'astro-pure/user'
@@ -59,6 +60,16 @@ if (!images[imagePath])
           这个博客不是一套从头到尾的教程，更像是我的公开笔记：把遇到的问题、做过的尝试和最后的取舍留下来。
         </p>
         <Button title='更多关于我' class='w-fit self-end' href='/about' variant='ahead' />
+      </Section>
+
+      <Section title='项目'>
+        <div class='grid gap-4 lg:grid-cols-2'>
+          <GithubCard repo='MrSibe/KnowNote' />
+          <GithubCard repo='MrSibe/sky-eye' />
+          <GithubCard repo='mrsibe/learn-llm' />
+          <GithubCard repo='mrsibe/streamgate' />
+        </div>
+        <Button title='更多项目' class='w-fit self-end' href='/projects' variant='ahead' />
       </Section>
 
       {
