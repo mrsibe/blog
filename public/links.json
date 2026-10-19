@@ -35,6 +35,22 @@
           }
         },
         {
+          "name": "Frederick",
+          "intro": "Welcome to my Alter Ego's site!",
+          "link": "https://frederick2313072.github.io/",
+          "avatar": "https://frederick2313072.github.io/favicon.png",
+          "avatar_cache": {
+            "hash": "8ee4229623834829",
+            "path": "/avatars/8ee4229623834829.png"
+          }
+        }
+      ]
+    },
+    {
+      "id_name": "inactive-links",
+      "desc": "暂不可用的友链",
+      "link_list": [
+        {
           "name": "Kinnari's Blog",
           "intro": "梦想是成为一只 fumo!",
           "link": "https://kinnari-blog.vercel.app/",
@@ -51,23 +67,8 @@
           "intro": "果砸的博客",
           "link": "http://www.168hours.top:7777/",
           "avatar": "/images/friend-placeholder.png"
-        },
-        {
-          "name": "Frederick",
-          "intro": "Welcome to my Alter Ego's site!",
-          "link": "https://frederick2313072.github.io/",
-          "avatar": "https://frederick2313072.github.io/favicon.png",
-          "avatar_cache": {
-            "hash": "8ee4229623834829",
-            "path": "/avatars/8ee4229623834829.png"
-          }
         }
       ]
-    },
-    {
-      "id_name": "inactive-links",
-      "desc": "暂不可用的友链",
-      "link_list": []
     },
     {
       "id_name": "special-links",
