@@ -1,39 +1,78 @@
 {
   "friends": [
     {
-      "id_name": "cf-links",
-      "desc": "Common links included in circle friends",
+      "id_name": "friends",
+      "desc": "我的朋友们，志同道合的创作者和探索者",
       "link_list": [
         {
-          "name": "Arthals' ink",
-          "intro": "所见高山远木，阔云流风；所幸岁月盈余，了无拘束",
-          "link": "https://arthals.ink/",
-          "avatar": "https://cdn.arthals.ink/Arthals.png"
+          "name": "梦辰の小窝",
+          "intro": "Eagerly Anticipating Our Reunion",
+          "link": "https://mc.mimeng.top",
+          "avatar": "https://mc.mimeng.top/_astro/avatar.C0sWSkbw_Z2aF073.avif",
+          "avatar_cache": {
+            "hash": "9bb7c91140080689",
+            "path": "/avatars/9bb7c91140080689.avif"
+          }
         },
         {
-          "name": "CWorld Site",
-          "intro": "求知若愚，虚怀若谷",
-          "link": "https://cworld0.com/",
-          "avatar": "https://gravatar.loli.net/avatar/1ffe42aa45a6b1444a786b1f32dfa8aa?s=200"
+          "name": "Soulter's Blog",
+          "intro": "The world is your canvas!",
+          "link": "https://blog.soulter.top/",
+          "avatar": "https://blog.soulter.top/assets/avatar.webp",
+          "avatar_cache": {
+            "hash": "27d6eae995c230b3",
+            "path": "/avatars/27d6eae995c230b3.webp"
+          }
+        },
+        {
+          "name": "CAICAIIs.World",
+          "intro": "愚者在月影之中怀抱虚妄",
+          "link": "https://caicaiis.cc/",
+          "avatar": "https://caicaiis.cc/assets/images/photo.jpg",
+          "avatar_cache": {
+            "hash": "cae73b6551263107",
+            "path": "/avatars/cae73b6551263107.jpg"
+          }
+        },
+        {
+          "name": "Kinnari's Blog",
+          "intro": "梦想是成为一只 fumo!",
+          "link": "https://kinnari-blog.vercel.app/",
+          "avatar": "/images/friend-placeholder.png"
+        },
+        {
+          "name": "变星矿工",
+          "intro": "业余变星搜寻爱好者",
+          "link": "https://www.vs-miner.top/",
+          "avatar": "/images/friend-placeholder.png"
+        },
+        {
+          "name": "果砸的博客",
+          "intro": "果砸的博客",
+          "link": "http://www.168hours.top:7777/",
+          "avatar": "/images/friend-placeholder.png"
+        },
+        {
+          "name": "Frederick",
+          "intro": "Welcome to my Alter Ego's site!",
+          "link": "https://frederick2313072.github.io/",
+          "avatar": "https://frederick2313072.github.io/favicon.png",
+          "avatar_cache": {
+            "hash": "8ee4229623834829",
+            "path": "/avatars/8ee4229623834829.png"
+          }
         }
       ]
     },
     {
       "id_name": "inactive-links",
-      "desc": "Inactive or rule-breaking friends",
+      "desc": "暂不可用的友链",
       "link_list": []
     },
     {
       "id_name": "special-links",
-      "desc": "Other special links",
-      "link_list": [
-        {
-          "name": "Astro",
-          "intro": "The web framework for content-driven websites",
-          "link": "https://astro.build/",
-          "avatar": "https://avatars.githubusercontent.com/u/44914786?s=200&v=4"
-        }
-      ]
+      "desc": "其他特别的链接",
+      "link_list": []
     }
   ]
 }

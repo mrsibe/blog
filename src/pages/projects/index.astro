@@ -1,214 +1,71 @@
 ---
-import { Image } from 'astro:assets'
-
-import { Button, Collapse, Icon } from 'astro-pure/user'
+import { GithubCard } from 'astro-pure/advanced'
 import PageLayout from '@/layouts/CommonPage.astro'
-import ProjectSection from '@/components/projects/ProjectSection.astro'
-import Sponsors from '@/components/projects/Sponsors.astro'
-import Sponsorship from '@/components/projects/Sponsorship.astro'
-import alipay from '@/assets/alipay-qrcode.jpg'
-import KeyIcon from '@/assets/icons/key.svg'
-import wechat from '@/assets/wechat-qrcode.jpg'
 
 const headings = [
-  { depth: 2, slug: 'programs', text: 'Programs' },
-  { depth: 2, slug: 'learnings', text: 'Learnings' },
-  { depth: 2, slug: 'others', text: 'Others' },
-  { depth: 2, slug: 'gpg-signature', text: 'GPG Signature' },
-  { depth: 2, slug: 'sponsorship', text: 'Sponsorship' }
+  { depth: 2, slug: 'knownote', text: 'KnowNote' },
+  { depth: 2, slug: 'sky-eye', text: 'Sky Eye' },
+  { depth: 2, slug: 'godis', text: 'godis' },
+  { depth: 2, slug: 'goding', text: 'goding' }
 ]
 ---
 
-<PageLayout title='Projects' {headings} view>
-  {/* About astro-pure */}
-  <div class='not-prose flex justify-center'>
-    <a
-      href='/docs/advanced/about'
-      target='_blank'
-      class='flex items-center gap-x-3 rounded-full border bg-background px-4 py-2 text-sm shadow-sm transition-shadow hover:shadow-md'
-    >
-      <span class='size-2 rounded-full bg-green-400'></span>
-      <p class='font-medium text-muted-foreground'>About Astro-Theme-Pure Project</p>
-    </a>
-  </div>
-  <p>Github Activities:</p>
+<PageLayout title='项目' {headings}>
   <p>
-    <Image
-      src='https://ghchart.rshah.org/659eb9/cworld1'
-      format='svg'
-      alt='github activities'
-      inferSize
-      loading='lazy'
-    />
+    这里放的是我真正动手做过、仍在继续完善的项目。只记录它们解决什么问题、目前做到哪里，以及代码和后续复盘从哪里看。
   </p>
+
+  <h2 id='knownote'>KnowNote</h2>
   <p>
-    If you think it would be useful or interesting to collaborate on a project, you can donate to
-    support my work or contact me to discuss a project.
+    一个本地优先的 AI 知识库，也是我对 NotebookLM
+    工作流的一次开源实现。它支持导入多种文档，在本地保存知识资产，并通过
+    RAG、可切换的模型提供商和来源引用辅助阅读与整理。
   </p>
-  <Button title='Checkout sponsorship' class='w-fit' href='#sponsorship'>
-    <Icon class='size-5' name='receive-money' slot='before' />
-  </Button>
+  <GithubCard repo='MrSibe/KnowNote' />
+  <ul>
+    <li><strong>当前状态：</strong>已发布可安装版本，仍在持续迭代</li>
+    <li><strong>技术栈：</strong>Electron、React、TypeScript、SQLite、sqlite-vec</li>
+    <li><strong>相关文章：</strong>整理中</li>
+  </ul>
 
-  <h2 id='programs'>Programs</h2>
-  <ProjectSection
-    projects={[
-      {
-        name: '🎨 Astro Theme Pure',
-        description: 'A simple, fast and powerful blog & document theme built by Astro',
-        links: [
-          { type: 'github', href: 'https://github.com/cworld1/astro-theme-pure' },
-          { type: 'site', href: 'https://astro-pure.js.org/' },
-          { type: 'doc', href: 'https://astro-pure.js.org/docs/list' },
-          { type: 'release', href: 'https://www.npmjs.com/package/astro-pure' }
-        ]
-      },
-      {
-        name: '💄 PKU Art',
-        description: 'A script to beautify pku course website',
-        links: [
-          { type: 'github', href: 'https://github.com/zhuozhiyongde/pku-art' },
-          { type: 'site', href: 'https://github.com/zhuozhiyongde/pku-art' },
-          { type: 'doc', href: 'https://docs.arthals.ink/docs/pku-art' }
-        ]
-      }
-    ]}
-  />
-  <Collapse title='Some old projects'>
-    <ProjectSection
-      projects={[
-        {
-          name: '🧩 rehype-autolink-headings-simple',
-          description: 'A simple version of rehype-autolink-headings',
-          links: [
-            { type: 'github', href: 'https://github.com/cworld1/rehype-autolink-headings-simple' },
-            {
-              type: 'release',
-              href: 'https://www.npmjs.com/package/rehype-autolink-headings-simple'
-            }
-          ]
-        },
-        {
-          name: 'Gaussian NB',
-          description:
-            'Simulating the Parsimonious Bayesian Algorithm with Python and Finding the Probability Prediction of Breast Cancer ',
-          links: [{ type: 'github', href: 'https://github.com/cworld1/gaussian-nb' }]
-        }
-      ]}
-    />
-  </Collapse>
-
-  <h2 id='learnings'>Learnings</h2>
-  <ProjectSection
-    class='my-2'
-    projects={[
-      {
-        name: 'R Learning',
-        description: 'Some notes and code about learning R language',
-        links: [
-          { type: 'github', href: 'https://github.com/cworld1/r-learning' },
-          { type: 'site', href: 'https://cworld1.github.io/r-learning' }
-        ]
-      },
-      {
-        name: 'CS 213 Learning',
-        description: 'Notes, code and experiences for Introduction to Computer Systems course',
-        links: [
-          {
-            type: 'github',
-            href: 'https://github.com/zhuozhiyongde/Introduction-To-Computer-System-2023Fall-PKU'
-          }
-        ]
-      }
-    ]}
-  />
-
-  <h2 id='others'>Others</h2>
-  <ProjectSection
-    projects={[
-      {
-        name: 'CWorld',
-        description: "CWorld's Github",
-        links: [{ type: 'github', href: 'https://github.com/cworld1' }]
-      },
-      {
-        name: 'Arthals',
-        description: 'Arthals Github',
-        links: [{ type: 'github', href: 'https://github.com/zhuozhiyongde' }]
-      }
-    ]}
-  />
-
-  <h2 id='gpg-signature'>GPG Signature</h2>
+  <h2 id='sky-eye'>Sky Eye</h2>
   <p>
-    You can verify the authenticity of the files I signed by checking the GPG signature. My GPG key
-    is <code>114514</code>, and you can find it on the opengpg key servers or download from it.
+    面向小行星和彗星观测数据处理的桌面软件。项目围绕 FITS 图像、天体测量、图像闪烁对比和 MPC
+    报告生成等工作流展开，希望减少观测数据处理中重复而分散的操作。
   </p>
-  <Button href='https://keys.openpgp.org/search?q=114514' title='Checkout my key' target='_blank'>
-    <KeyIcon class='size-5' slot='before' />
-  </Button>
+  <GithubCard repo='MrSibe/sky-eye' />
+  <ul>
+    <li><strong>当前状态：</strong>正在开发，功能和工作流仍在调整</li>
+    <li><strong>技术栈：</strong>Tauri、Rust、React、FITS</li>
+    <li><strong>相关文章：</strong>整理中</li>
+  </ul>
 
-  <h2 id='sponsorship'>Sponsorship</h2>
+  <h2 id='godis'>godis</h2>
   <p>
-    Chinese methods: <a href='https://afdian.com/a/cworld' target='_blank'>Afadian</a>, Wechat or
-    Alipay
+    用 Go 编写的 Redis-compatible 内存键值数据库。我通过这个项目理解 RESP
+    协议、命令执行、过期策略和并发控制，而不是把它包装成可以直接替代 Redis 的生产系统。
   </p>
-  <Sponsorship
-    methods={[
-      { name: 'WeChat', icon: 'wechat-pay', image: wechat },
-      { name: 'Alipay', icon: 'alipay', image: alipay }
-    ]}
-  />
-  <p>Global methods: <a href='https://ko-fi.com/cworld0' target='_blank'>Ko-fi</a></p>
+  <GithubCard repo='MrSibe/godis' />
+  <ul>
+    <li><strong>当前状态：</strong>学习与实验项目</li>
+    <li><strong>技术栈：</strong>Go、RESP</li>
+    <li><strong>相关文章：</strong>整理中</li>
+  </ul>
+
+  <h2 id='goding'>goding</h2>
   <p>
-    Please leave a message or contact me proactively after sponsorship. My email is:
-    <code
-      style='cursor: pointer'
-      onclick='const m=atob(this.textContent);alert(m);window.open(`mailto:${m}`,"_blank")'
-      >Y3dvcmxkMEBxcS5jb20=</code
-    >
-    (click code to transform base64).
+    一个用 Go 编写的轻量级 Coding Agent。我用它探索模型调用、工具执行、上下文管理和 Agent
+    循环怎样组合成一个可恢复的编码助手。
   </p>
-  <p>Thanks to the following sponsors:</p>
-  <Sponsors
-    progressMax={50}
-    sponsors={[
-      { name: 'd2be8', platform: 'Afdian', amount: 5, date: '2026-05-22' },
-      { name: 'Saneko', platform: 'Wechat', amount: 188, date: '2026-02-25' },
-      { name: '边缘星2020', platform: 'Afdian', amount: 20.26, date: '2026-02-17' },
-      { name: 'Juyao Huang', platform: 'Wechat', amount: 5, date: '2026-01-15' },
-      { name: 'hoochanlon', platform: 'Wechat', amount: 5, date: '2025-11-09' },
-      { name: 'Arthals', platform: 'Wechat', amount: 50, date: '2025-11-06' },
-      { name: '边缘星2020 (byx2020.com)', platform: 'Alipay', amount: 50, date: '2025-11-01' },
-      { name: '小哲', platform: 'Wechat', amount: 50, date: '2025-08-19' },
-      { name: 'Open1V', platform: 'Wechat', amount: 2, date: '2025-08-14' },
-      { name: 'Luis Xu', platform: 'Alipay', amount: 30, date: '2025-08-03' },
-      { name: '顾**', platform: 'Wechat', amount: 28, date: '2025-06-23' },
-      { name: 'Hans J.Han', platform: 'Wechat', amount: 10, date: '2025-04-04' },
-      { name: '**青', platform: 'Alipay', amount: 12, date: '2024-05-21' },
-      { name: 'Anonymous', platform: 'Wechat', amount: 20, date: '2022-04-06' },
-      { name: '华雄', platform: 'QQ', amount: 5, date: '2019-12-30' },
-      { name: '◌', platform: 'QQ', amount: 3, date: '2019-12-30' },
-      { name: 'C*a (酷安@暴走の蜗牛)', amount: 2, date: '2019-07-02' }
-    ]}
-  />
+  <GithubCard repo='MrSibe/goding' />
+  <ul>
+    <li><strong>当前状态：</strong>早期开发阶段</li>
+    <li><strong>技术栈：</strong>Go、LLM、Tool Calling</li>
+    <li>
+      <strong>相关文章：</strong>
+      <a href='/blog/agent/openclaw'>
+        从 OpenClaw 到 Hermes Agent：我对记忆、Skill 和 Agent 架构的理解
+      </a>
+    </li>
+  </ul>
 </PageLayout>
-
-<style>
-  .sponsorship-card {
-    & .sponsorship-card-img {
-      opacity: 0.3;
-      --un-blur: blur(4px);
-      filter: var(--un-blur);
-    }
-
-    &:hover {
-      & .sponsorship-card-icon {
-        opacity: 0;
-      }
-      & .sponsorship-card-img {
-        opacity: 1;
-        --un-blur: blur(0);
-      }
-    }
-  }
-</style>

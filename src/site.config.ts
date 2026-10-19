@@ -3,71 +3,56 @@ import type { CardListData, Config, IntegrationUserConfig, ThemeUserConfig } fro
 export const theme: ThemeUserConfig = {
   // [Basic]
   /** Title for your website. Will be used in metadata and as browser tab title. */
-  title: 'Astro Theme Pure',
+  title: '西贝的代码宇宙',
   /** Will be used in index page & copyright declaration */
-  author: 'Pure Lab',
+  author: '啊啊啊啊西贝',
   /** Description metadata for your website. Can be used in page metadata. */
-  description: 'Stay hungry, stay foolish',
+  description: '在星辰与字节之间，写下一行属于宇宙的代码。',
   /** The default favicon for your site which should be a path to an image in the `public/` directory. */
-  favicon: '/favicon/favicon.ico',
+  favicon: '/favicon.ico',
   /** The default social card image for your site which should be a path to an image in the `public/` directory. */
   socialCard: '/images/social-card.png',
   /** Specify the default language for this site. */
   locale: {
-    lang: 'en-US',
-    attrs: 'en_US',
+    lang: 'zh-CN',
+    attrs: 'zh_CN',
     // Date locale
-    dateLocale: 'en-US',
+    dateLocale: 'zh-CN',
     dateOptions: {
-      day: 'numeric',
+      year: 'numeric',
       month: 'short',
-      year: 'numeric'
+      day: 'numeric'
     }
   },
   /** Set a logo image to show in the homepage. */
   logo: {
-    src: '/src/assets/avatar.png',
-    alt: 'Avatar'
+    src: '/src/assets/avatar-128.jpg',
+    alt: '西贝的头像'
   },
 
-  titleDelimiter: '•',
+  titleDelimiter: '-',
   prerender: true, // pagefind search is not supported with prerendering disabled
   npmCDN: 'https://cdn.jsdelivr.net/npm',
 
   // Still in test
-  head: [
-    /* Telegram channel */
-    // {
-    //   tag: 'meta',
-    //   attrs: { name: 'telegram:channel', content: '@cworld0_cn' },
-    //   content: ''
-    // }
-  ],
+  head: [],
   customCss: [],
 
   /** Configure the header of your site. */
   header: {
     menu: [
-      { title: 'Blog', link: '/blog' },
-      { title: 'Docs', link: '/docs' },
-      { title: 'Projects', link: '/projects' },
-      { title: 'Links', link: '/links' },
-      { title: 'About', link: '/about' }
+      { title: '博客', link: '/blog' },
+      { title: '项目', link: '/projects' },
+      { title: '友链', link: '/links' },
+      { title: '关于', link: '/about' }
     ]
   },
 
   /** Configure the footer of your site. */
   footer: {
     // Year format
-    year: `© ${new Date().getFullYear()}`,
-    // year: `© 2019 - ${new Date().getFullYear()}`,
+    year: `© 2024 - ${new Date().getFullYear()} `,
     links: [
-      // Registration link
-      {
-        title: 'Moe ICP 114514',
-        link: 'https://icp.gov.moe/?keyword=114514',
-        style: 'text-sm' // Uno/TW CSS class
-      },
       // Privacy Policy link
       {
         title: 'Site Policy',
@@ -79,7 +64,9 @@ export const theme: ThemeUserConfig = {
     credits: true,
     /** Optional details about the social media accounts for this site. */
     social: [
-      { icon: 'github', label: 'GitHub', href: 'https://github.com/cworld1/astro-theme-pure' },
+      { icon: 'github', label: 'GitHub', href: 'https://github.com/MrSibe' },
+      { icon: 'bilibili', label: 'Bilibili', href: 'https://space.bilibili.com/386324877' },
+      { icon: 'x', label: 'X', href: 'https://x.com/Mr_Sibei' },
       { icon: 'rss', label: 'RSS', href: '/rss.xml' }
     ]
   },
@@ -107,22 +94,16 @@ export const integ: IntegrationUserConfig = {
   // https://astro-pure.js.org/docs/integrations/links
   links: {
     // Friend logbook
-    logbook: [
-      { date: '2025-03-16', content: 'Is there a leakage?' },
-      { date: '2025-03-16', content: 'A leakage of what?' },
-      { date: '2025-03-16', content: 'I have a full seat of water, like, full of water!' },
-      { date: '2025-03-16', content: 'Must be the water.' },
-      { date: '2025-03-16', content: "Let's add that to the words of wisdom." }
-    ],
+    logbook: [],
     // Yourself link info
     applyTip: [
-      { name: 'Name', val: theme.title },
-      { name: 'Desc', val: theme.description || 'Null' },
-      { name: 'Link', val: 'https://astro-pure.js.org/' },
-      { name: 'Avatar', val: 'https://astro-pure.js.org/favicon/favicon.ico' }
+      { name: '名称', val: theme.title },
+      { name: '简介', val: theme.description || 'Null' },
+      { name: '链接', val: 'https://mrsibe.top/' },
+      { name: '头像', val: 'https://mrsibe.top/images/avatar-128.jpg' }
     ],
     // Cache avatars in `public/avatars/` to improve user experience.
-    cacheAvatar: false
+    cacheAvatar: true
   },
   // [Search]
   pagefind: true,
@@ -132,15 +113,8 @@ export const integ: IntegrationUserConfig = {
   quote: {
     // - Hitokoto
     // https://developer.hitokoto.cn/sentence/#%E8%AF%B7%E6%B1%82%E5%9C%B0%E5%9D%80
-    // server: 'https://v1.hitokoto.cn/?c=i',
-    // target: `(data) => (data.hitokoto || 'Error')`
-    // - Quotable
-    // https://github.com/lukePeavey/quotable
-    // server: 'http://api.quotable.io/quotes/random?maxLength=60',
-    // target: `(data) => data[0].content || 'Error'`
-    // - DummyJSON
-    server: 'https://dummyjson.com/quotes/random',
-    target: `(data) => (data.quote.length > 80 ? \`\${data.quote.slice(0, 80)}...\` : data.quote || 'Error')`
+    server: 'https://v1.hitokoto.cn/?c=i',
+    target: `(data) => (data.hitokoto || 'Error')`
   },
   // [Typography]
   // https://unocss.dev/presets/typography
@@ -162,25 +136,9 @@ export const integ: IntegrationUserConfig = {
     }
   },
   // Comment system
+  // Disabled: this blog intentionally ships without a comment system.
   waline: {
-    enable: true,
-    // Server service link
-    server: 'https://astro-theme-pure-waline.arthals.ink/',
-    // Show meta info for comments
-    showMeta: false,
-    // Refer https://waline.js.org/en/guide/features/emoji.html
-    emoji: ['bmoji', 'weibo'],
-    // Refer https://waline.js.org/en/reference/client/props.html
-    additionalConfigs: {
-      // search: false,
-      locale: {
-        nick: 'Name',
-        mail: 'Email',
-        login: 'Login (Optional)',
-        placeholder: 'Comment here... (Email to receive replies)',
-        reaction0: 'Like'
-      }
-    }
+    enable: false
   }
 }
 

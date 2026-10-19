@@ -1,250 +1,54 @@
 ---
-import { Button, Collapse, Spoiler, Timeline } from 'astro-pure/user'
 import PageLayout from '@/layouts/CommonPage.astro'
-import Substats from '@/components/about/Substats.astro'
-import ToolSection from '@/components/about/ToolSection.astro'
+import config from '@/site-config'
 
 const headings = [
-  { depth: 2, slug: 'hobbies', text: 'Hobbies' },
-  { depth: 2, slug: 'tools', text: 'Tools' },
-  { depth: 2, slug: 'social-networks', text: 'Social Networks' },
-  { depth: 2, slug: 'gossips', text: 'Gossips' },
-  { depth: 2, slug: 'about-blog', text: 'About Blog' }
+  { depth: 2, slug: 'about-me', text: '关于我' },
+  { depth: 2, slug: 'this-blog', text: '这个博客' },
+  { depth: 2, slug: 'contact', text: '联系我' }
 ]
 ---
 
-<PageLayout title='About' {headings} comment>
-  <p>Developer / Designer</p>
+<PageLayout title='关于' {headings}>
+  <p>你好，我是{config.author}，一名计算机专业学生，平时主要写 Java 和 Go。</p>
   <p>
-    Lorem ipsum dolor sit amet, vidit suscipit at mei. Quem denique mea id. Usu ei regione indoctum
-    dissentiunt, cu meliore fuisset mei, vel quod voluptua ne. Ex dicat impedit mel, at eum oratio
-    possit voluptatum.
+    我正在学习后端与分布式系统，也会动手做
+    AI、开源软件和天文数据处理相关的项目。这个博客不是一套从头到尾的教程，更像是我的公开笔记：把遇到的问题、做过的尝试和最后的取舍留下来。
   </p>
   <p>
-    Motto: Stay hungry, Stay foolish. <Spoiler>这里可以夹私货，比如为什么要演奏春日影！</Spoiler>
+    除了代码，我也喜欢看星星、折腾望远镜和业余无线电。“写代码，也看星星”大概就是这里最简单的介绍。
   </p>
-  <Button title='Sponsor Me' class='w-fit' href='/projects#sponsorship' variant='ahead' />
-
-  {/* general-talk */}
-  <h2 id='hobbies'>Hobbies</h2>
   <ul>
-    <li>Lorem ipsum dolor sit amet, vidit suscipit at mei.</li>
-    <li>
-      Quem denique mea id. Usu ei regione indoctum dissentiunt, cu meliore fuisset mei, vel quod
-      voluptua ne.
-    </li>
-    <li>Ex dicat impedit mel, at eum oratio possit voluptatum.</li>
-    <li>Impetus fuisset ullamcorper pri cu, his posse iisque ad, aliquam honestatis usu id.</li>
+    <li><a href='https://github.com/MrSibe' target='_blank'>GitHub</a></li>
+    <li><a href='/blog'>文章</a></li>
+    <li><a href='/projects'>项目</a></li>
+    <li><a href='/links'>友链</a></li>
   </ul>
 
-  {/* tools */}
-  <h2 id='tools'>Tools</h2>
-  <p>Current support tools as follow:</p>
-  <ToolSection
-    class='mb-5'
-    title='Design'
-    tools={[
-      {
-        name: 'Photoshop',
-        description: 'Picture Editing',
-        href: 'https://www.adobe.com/products/photoshop',
-        icon: import('@/assets/tools/photoshop.svg?raw')
-      },
-      {
-        name: 'Illustrator',
-        description: 'Vector Drawing',
-        href: 'https://www.adobe.com/products/illustrator',
-        icon: import('@/assets/tools/illustrator.svg?raw')
-      },
-      {
-        name: 'After Effects',
-        description: 'Motion Graphics',
-        href: 'https://www.adobe.com/products/aftereffects',
-        icon: import('@/assets/tools/aftereffects.svg?raw')
-      },
-      {
-        name: 'Premiere Pro',
-        description: 'Video Editing',
-        href: 'https://www.adobe.com/products/premiere',
-        icon: import('@/assets/tools/premiere.svg?raw')
-      }
-    ]}
-  />
-  <ToolSection
-    class='mb-5'
-    title='Productivity'
-    tools={[
-      {
-        name: 'Chrome',
-        description: 'Browser',
-        href: 'https://www.google.com/chrome/',
-        icon: import('@/assets/tools/chrome.svg?raw')
-      },
-      {
-        name: 'Firefox',
-        description: 'Browser',
-        href: 'https://www.mozilla.org/en-US/firefox',
-        icon: import('@/assets/tools/firefox.svg?raw')
-      },
-      {
-        name: 'Notion',
-        description: 'Note Taking',
-        href: 'https://www.notion.so/',
-        icon: import('@/assets/tools/notion.svg?raw')
-      },
-      {
-        name: 'Typora',
-        description: 'Markdown Editor',
-        href: 'https://typora.io/',
-        icon: import('@/assets/tools/typora.svg?raw')
-      }
-    ]}
-  />
-  <ToolSection
-    class='mb-5'
-    title='Development'
-    tools={[
-      {
-        name: 'VS Code',
-        description: 'IDE',
-        href: 'https://code.visualstudio.com/',
-        icon: import('@/assets/tools/vscode.svg?raw')
-      },
-      {
-        name: 'Neovim',
-        description: 'IDE',
-        href: 'https://neovim.io/',
-        icon: import('@/assets/tools/neovim.svg?raw')
-      },
-      {
-        name: 'Sublime Text',
-        description: 'IDE',
-        href: 'https://www.sublimetext.com/',
-        icon: import('@/assets/tools/sublime.svg?raw')
-      }
-    ]}
-  />
-  <ToolSection
-    class='mb-5'
-    title='Environment'
-    tools={[
-      {
-        name: 'Arch Linux',
-        description: 'Linux Distribution',
-        href: 'https://archlinux.org/',
-        icon: import('@/assets/tools/archlinux.svg?raw')
-      },
-      {
-        name: 'Ubuntu 24.04 LTS',
-        description: 'Linux Distribution',
-        href: 'https://ubuntu.com/',
-        icon: import('@/assets/tools/ubuntu.svg?raw')
-      },
-      {
-        name: 'MacOS Tahoe',
-        description: 'MacBook Air',
-        href: 'https://www.apple.com/macos/',
-        icon: import('@/assets/tools/apple.svg?raw')
-      },
-      {
-        name: 'Windows 11',
-        description: 'Framework Laptop 16',
-        href: 'https://news.microsoft.com/windows11-general-availability/',
-        icon: import('@/assets/tools/windows11.svg?raw')
-      }
-    ]}
-  />
-
-  {/* social-networks */}
-  <h2 id='social-networks'>Social Networks</h2>
+  <h2 id='about-me'>关于我</h2>
   <p>
-    Lorem ipsum dolor sit amet, vidit suscipit at mei. Quem denique mea id. Usu ei regione indoctum
-    dissentiunt, cu meliore fuisset mei, vel quod voluptua ne.
+    计算机专业学生，主要写 Java 和 Go。目前的方向是后端与分布式系统，也在动手做一些 AI
+    和开源软件相关的项目。业余时间喜欢天文观测和业余无线电。
   </p>
-  <Substats
-    stats={[
-      {
-        platform: 'GitHub',
-        icon: 'github',
-        link: 'https://github.com/cworld1',
-        text: 'followers',
-        api: 'github/cworld1'
-      },
-      {
-        platform: 'Telegram',
-        icon: 'telegram',
-        color: '#2ca5e0',
-        link: 'https://t.me/cworld0_cn',
-        text: 'subscribers',
-        api: 'telegram/cworld0_cn'
-      },
-      {
-        platform: 'Steam',
-        icon: 'steam',
-        color: '#50769d',
-        link: 'https://steamcommunity.com/id/cworld',
-        text: 'games',
-        api: 'steamgames/76561199021278120'
-      }
-    ]}
-  />
 
-  {/* gossips */}
-  <h2 id='gossips'>Gossips</h2>
-  <Collapse title='Lorem ipsum'>
-    Lorem ipsum dolor sit amet, vidit suscipit at mei. Quem denique mea id. Usu ei regione indoctum
-    dissentiunt, cu meliore fuisset mei, vel quod voluptua ne. Ex dicat impedit mel, at eum oratio
-    possit voluptatum.
-  </Collapse>
-
-  {/* about-blog */}
-  <h2 id='about-blog'>About Blog</h2>
-  <p>Website history:</p>
-  <Timeline
-    events={[
-      {
-        date: '2024-04-29',
-        content:
-          'Website refactored using <a href="https://astro.build/" target="_blank">Astro</a> and <a href="https://github.com/srleom/astro-theme-resume" target="_blank">Astro Theme Resume</a>'
-      },
-      {
-        date: '2024-07-26',
-        content:
-          'Website abstracted as a theme and published on <a href="https://github.com/cworld1/astro-theme-pure"target="_blank">Github</a>'
-      },
-      {
-        date: '2024-07-27',
-        content: 'Began writing website docs'
-      }
-    ]}
-  />
+  <h2 id='this-blog'>这个博客</h2>
   <p>
-    The smooth operation and personalized customization of website also rely on the resources and
-    technical support provided by the following excellent projects/service providers:
+    这里记录我学习和折腾的过程：读完的书、写完的代码、踩过的坑，以及最后的取舍。文章以笔记为主，不追求系统性的教程。
   </p>
+
+  <h2 id='contact'>联系我</h2>
   <ul>
-    <li>Domain: <a href='#' target='_blank'>Vercel</a></li>
     <li>
-      Framework & Theme: <a href='https://astro.build/' target='_blank'>Astro</a> + <a
-        href='https://github.com/cworld1/astro-theme-pure'
-        target='_blank'>Astro Theme Pure</a
-      >
+      GitHub：<a href='https://github.com/MrSibe' target='_blank'>MrSibe</a>
     </li>
     <li>
-      Site hosting: <a href='https://vercel.com/' target='_blank'>Vercel</a>
+      Bilibili：<a href='https://space.bilibili.com/386324877' target='_blank'>啊啊啊啊西贝</a>
     </li>
     <li>
-      CI/CD: <a href='https://vercel.com/workflow' target='_blank'>Vercel Workflow</a>
-    </li>
-    <li>Comment system: <a href='https://waline.js.org' target='_blank'>Waline</a></li>
-    <li>
-      Visits: <a href='https://supabase.com/' target='_blank'>Supabase</a> +
-      <a href='https://waline.js.org/' target='_blank'>Waline</a>
+      X：<a href='https://x.com/Mr_Sibei' target='_blank'>@Mr_Sibei</a>
     </li>
     <li>
-      Other statistics: <a href='https://github.com/spencerwooo/substats' target='_blank'
-        >Substats</a
-      >
+      RSS：<a href='/rss.xml'>/rss.xml</a>
     </li>
   </ul>
 </PageLayout>
