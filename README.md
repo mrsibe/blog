@@ -40,6 +40,19 @@ frontmatter 必填 `title`、`description`、`publishDate`，可选 `updatedDate
 
 没有评论系统：`integ.waline.enable` 保持 `false`。
 
+## 写笔记
+
+笔记复用主题的 docs 集合与页面，导航显示为「笔记」，入口为 `/notes`。
+
+文件放在 `src/content/docs/`：`engineering/tools/vim.md` → `/notes/engineering/tools/vim`。
+frontmatter 必填 `title`、`description`，可选 `order`（同组内排序）、`draft`、`tags`、`publishDate`、`updatedDate`。
+目录导航复用主题的 `DocsContents.astro`（位于 `src/components/notes/`）：顶部显示一级分类，点击进入该分类的首篇笔记；侧栏只显示当前分类的子目录和文章，并高亮当前页。窄屏顶部分类可横向滚动，侧栏沿用主题的移动端目录按钮。
+首页、顶部分类与侧栏共用 `src/notes.config.ts` 中的分类与排序。
+笔记单独的订阅地址是 `/notes/rss.xml`，也会进入全站 Pagefind 搜索。
+
+从 `../notes` 迁入的 11 篇笔记保留原目录与正文；其中 6 篇目前只有标题，供后续补充。
+Starlight 的 `sidebar.order` 已转换为 `order`，原站首页说明移入笔记入口页。
+
 ## 图表与分享图
 
 ### Mermaid

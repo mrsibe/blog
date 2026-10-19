@@ -1,0 +1,171 @@
+---
+import { getBlogCollection } from 'astro-pure/server'
+import { Button, Icon } from 'astro-pure/user'
+import PageLayout from '@/layouts/BaseLayout.astro'
+import DocsContents from '@/components/notes/DocsContents.astro'
+
+import { getNoteSections } from '../../notes.config'
+
+const sections = getNoteSections(await getBlogCollection('docs'))
+const meta = {
+  title: '笔记',
+  description: '记录计算机基础、软件开发、工程实践与人工智能的学习笔记。'
+}
+---
+
+<PageLayout {meta}>
+  <DocsContents variant='sections' slot='section-navigation' />
+  <main class='notes-index'>
+    <header class='notes-heading'>
+      <div>
+        <h1 class='text-3xl font-medium'>笔记</h1>
+        <p class='text-muted-foreground'>学习中的理解、工具与实践，按主题整理，持续补充。</p>
+      </div>
+      <div class='notes-actions'>
+        <Button title='搜索' href='/search'>
+          <Icon name='search' slot='before' />
+        </Button>
+        <Button title='订阅' href='/notes/rss.xml'>
+          <Icon name='rss' slot='before' />
+        </Button>
+      </div>
+    </header>
+
+    <div class='notes-directory'>
+      {
+        sections.map((section) => (
+          <section class='notes-section' aria-labelledby={`subject-${section.id}`}>
+            <h2 id={`subject-${section.id}`} class='text-xl font-medium'>
+              {section.title}
+            </h2>
+            <div class='notes-groups'>
+              {section.groups.map((group) => (
+                <div>
+                  <h3 class='notes-group-title text-sm text-muted-foreground'>{group.title}</h3>
+                  <ul class='notes-list'>
+                    {group.notes.map((note) => (
+                      <li>
+                        <a class='note-link' href={`/notes/${note.id}`}>
+                          <span class='note-title'>{note.data.title}</span>
+                          {!note.body?.trim() && <span class='note-pending'>待补充</span>}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </section>
+        ))
+      }
+    </div>
+    {sections.length === 0 && <p class='text-muted-foreground'>笔记正在整理中。</p>}
+  </main>
+</PageLayout>
+
+<style>
+  .notes-index {
+    margin: 1rem auto 0;
+    max-width: 58rem;
+  }
+
+  .notes-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .notes-heading p {
+    margin-top: 0.875rem;
+    max-width: 32rem;
+    line-height: 1.8;
+  }
+
+  .notes-actions {
+    display: flex;
+    flex-shrink: 0;
+    gap: 0.5rem;
+    padding-top: 0.25rem;
+  }
+
+  .notes-section {
+    display: grid;
+    grid-template-columns: minmax(8rem, 1fr) minmax(0, 3fr);
+    gap: 2rem;
+    border-top: 1px solid hsl(var(--border));
+    padding: 2rem 0;
+  }
+
+  .notes-groups {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.75rem 2rem;
+  }
+
+  .notes-group-title {
+    margin-bottom: 0.625rem;
+  }
+
+  .notes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+
+  .note-link {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.625rem;
+    margin-inline: -0.625rem;
+  }
+
+  .note-link:hover {
+    background: hsl(var(--muted));
+  }
+
+  .note-link:focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 2px;
+  }
+
+  .note-title {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .note-pending {
+    flex-shrink: 0;
+    color: hsl(var(--muted-foreground));
+    font-size: 0.75rem;
+  }
+
+  @media (max-width: 767px) {
+    .notes-index {
+      margin-top: 1rem;
+    }
+
+    .notes-heading {
+      flex-direction: column;
+      gap: 1rem;
+      padding-bottom: 1.75rem;
+    }
+
+    .notes-section {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+      padding-block: 1.5rem;
+    }
+  }
+
+  @media (max-width: 479px) {
+    .notes-groups {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+  }
+</style>

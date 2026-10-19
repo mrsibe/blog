@@ -64,12 +64,13 @@ const GET = async (context: AstroGlobal) => {
     stylesheet: '/scripts/pretty-feed-v3.xsl',
 
     // Contents
-    title: config.title,
-    description: config.description,
+    title: `${config.title} · 笔记`,
+    description: '记录计算机基础、软件开发、工程实践与人工智能的学习笔记。',
     site: import.meta.env.SITE,
+    customData: '<language>zh-CN</language>',
     items: await Promise.all(
       allPostsByDate.map(async (post) => ({
-        link: `/docs/${post.id}`,
+        link: `/notes/${post.id}`,
         content: await renderContent(post, siteUrl),
         ...post.data
       }))

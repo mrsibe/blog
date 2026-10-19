@@ -1,0 +1,136 @@
+---
+import { getBlogCollection } from 'astro-pure/server'
+import { cn } from 'astro-pure/utils'
+
+import { getNoteSections } from '../../notes.config'
+
+interface Props {
+  variant?: 'sections' | 'pages'
+  currentId?: string
+  title?: boolean
+  class?: string
+}
+
+const { variant = 'pages', currentId = '', title = true, class: className, ...props } = Astro.props
+const sections = getNoteSections(await getBlogCollection('docs'))
+const currentSection = sections.find((section) => section.id === currentId.split('/')[0])
+---
+
+{
+  variant === 'sections' ? (
+    <nav class={cn('notes-tabs', className)} aria-label='笔记分类' data-pagefind-ignore {...props}>
+      <ul>
+        <li>
+          <a href='/notes' aria-current={!currentId ? 'page' : undefined}>
+            全部笔记
+          </a>
+        </li>
+        {sections.map((section) => (
+          <li>
+            <a
+              href={`/notes/${section.groups[0].notes[0].id}`}
+              aria-current={section.id === currentSection?.id ? 'true' : undefined}
+            >
+              {section.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  ) : (
+    currentSection && (
+      <docs-toc class={cn('not-prose', className)} {...props}>
+        {title && <h2 class='text-foreground font-medium'>目录</h2>}
+        <ul class='mt-4 flex flex-col gap-y-5'>
+          {currentSection.groups.map((group) => (
+            <li>
+              <h3 class='text-muted-foreground text-sm'>{group.title}</h3>
+              <ul class='mt-2 flex flex-col'>
+                {group.notes.map((doc) => (
+                  <li
+                    class:list={[
+                      'docs-item flex relative ms-2 px-3 py-1 text-foreground/75 transition-all rounded-2xl',
+                      { 'docs-hl': doc.id === currentId }
+                    ]}
+                  >
+                    <a
+                      class='flex-1 hover:text-foreground'
+                      href={`/notes/${doc.id}`}
+                      aria-current={doc.id === currentId ? 'page' : undefined}
+                    >
+                      {doc.data.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ul>
+      </docs-toc>
+    )
+  )
+}
+
+<style>
+  .notes-tabs {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid hsl(var(--border));
+    overflow-x: auto;
+  }
+
+  .notes-tabs > ul {
+    display: flex;
+    width: max-content;
+    min-width: 100%;
+    gap: 1.75rem;
+  }
+
+  .notes-tabs a {
+    display: block;
+    border-bottom: 2px solid transparent;
+    padding: 0.75rem 0.125rem;
+    white-space: nowrap;
+    color: hsl(var(--muted-foreground));
+  }
+
+  .notes-tabs a[aria-current] {
+    color: hsl(var(--primary));
+    border-bottom-color: hsl(var(--primary));
+    font-weight: 500;
+  }
+
+  a:focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: -2px;
+    border-radius: 0.25rem;
+  }
+
+  docs-toc .docs-item::before {
+    content: '';
+    position: absolute;
+    top: 5%;
+    bottom: 5%;
+    left: -0.5rem;
+    width: 2px;
+    background-color: hsl(var(--input));
+  }
+
+  docs-toc .docs-hl {
+    background-color: hsl(var(--muted));
+    font-weight: 500;
+  }
+
+  docs-toc .docs-hl a {
+    color: hsl(var(--primary));
+  }
+
+  docs-toc .docs-hl::before {
+    background-color: hsl(var(--primary));
+  }
+
+  @media (max-width: 639px) {
+    .notes-tabs > ul {
+      gap: 1.25rem;
+    }
+  }
+</style>

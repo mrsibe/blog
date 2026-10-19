@@ -43,6 +43,7 @@ const {
       class='w-full max-w-[70rem] min-h-[100dvh] flex flex-col justify-between'
     >
       <Header />
+      <slot name='section-navigation' />
       <div class='flex-1 w-full'>
         <slot />
       </div>
