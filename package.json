@@ -13,6 +13,7 @@
     "new-post": "node scripts/new-post.js",
     "indexnow": "node scripts/indexnow.mjs",
     "format": "biome format --write ./src",
+    "format:md": "prettier --write \"src/content/posts/**/*.md\"",
     "lint": "biome check --write ./src",
     "preinstall": "npx only-allow pnpm"
   },
@@ -75,7 +76,8 @@
     "@types/mdast": "^4.0.4",
     "@types/sanitize-html": "^2.16.1",
     "postcss-import": "^16.2.0",
-    "postcss-nesting": "^13.0.2"
+    "postcss-nesting": "^13.0.2",
+    "prettier": "^3.9.10"
   },
   "packageManager": "pnpm@9.14.4"
 }

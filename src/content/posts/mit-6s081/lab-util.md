@@ -3,9 +3,9 @@ title: MIT 6.S081 | Lab util
 published: 2025-09-28 18:02:33+08:00
 description: 我完成 MIT 6.S081 Lab util 时的实现记录：围绕 sleep 和 pingpong 两个练习，梳理系统调用、进程与管道的工作方式，并给出具体的解题思路和代码。
 tags:
-- 操作系统
-- Unix
-- 公开课
+  - 操作系统
+  - Unix
+  - 公开课
 category: 课程笔记
 draft: false
 ---
@@ -36,11 +36,11 @@ int main(int argc, char *argv[]) {
 
 `int argc, char *argv[]`，这到底传递的是什么？Argc 其实是参数的个数，agrv 则是参数的指针。也就是说我们 main 函数需要一个大小为 `agrc` 的列表，名字叫 `argv`，范围是 `0-agrc-1` 。
 
-比如说我们执行 `cp demo.c demo.cpp`，`agrc` 为 3，`argv` 为  `['cp', 'demo.c', 'demo.cpp']`。
+比如说我们执行 `cp demo.c demo.cpp`，`agrc` 为 3，`argv` 为 `['cp', 'demo.c', 'demo.cpp']`。
 
-那么 `argc` 和  `argv` 是如何得出的？这是 shell 的解析器在负责，不需要我们一个一个数参数到底有多少个。
+那么 `argc` 和 `argv` 是如何得出的？这是 shell 的解析器在负责，不需要我们一个一个数参数到底有多少个。
 
-总结一下：我们输入的指令，会被 shell 解析成 `argc` 和  `argv` ，然后交给 main 函数来使用。这里面还有更具体的流程，后面再说。
+总结一下：我们输入的指令，会被 shell 解析成 `argc` 和 `argv` ，然后交给 main 函数来使用。这里面还有更具体的流程，后面再说。
 
 ### Sleep 的原理
 
@@ -91,7 +91,7 @@ uint64 sys_sleep(void)
 
 int main(int argc, char *argv[]) {
     int n;
-    
+   
     // 判断参数个数是否正确
     if(argc != 2) {
         fprintf(2, "usage: sleep <ticks>\n");
@@ -100,13 +100,13 @@ int main(int argc, char *argv[]) {
 
     // ticks 参数转换为整型
     n = atoi(argv[1]);
-    
+   
     // 判断 ticks 是否为正数
     if(n <= 0) {
         fprintf(2, "sleep: ticks must be positive\n");
         exit(1);
     }
-    
+   
     // sleep，发现返回值不对也需要报错
     if(sleep(n) != 0) {
         fprintf(2, "sleep: interrupted\n");
@@ -161,7 +161,7 @@ if (pipe(p) < 0) {
 那么读取写入又是如何实现的呢？通过 `read` 和 `write`：
 
 ```c
-char buf = 'x'; 
+char buf = 'x';
 
 // 参数列表：文件描述符、传递内容的地址、传递内容的大小（字节）
 write(p[1], &buf, 1);

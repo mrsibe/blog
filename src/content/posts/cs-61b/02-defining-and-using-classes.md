@@ -3,9 +3,9 @@ title: CS 61B | Defining and Using Classes
 published: 2025-11-03 10:56:24+08:00
 description: CS 61B 学习笔记：围绕 Java 中类的定义与使用，区分静态方法和实例方法，讲解构造函数、数组、静态变量以及 main 函数和命令行参数的用法。
 tags:
-- Java
-- 面向对象
-- 公开课
+  - Java
+  - 面向对象
+  - 公开课
 category: 课程笔记
 draft: false
 ---
@@ -15,9 +15,9 @@ draft: false
 概念解释：
 
 | 猴子      | 猴子 20 岁了 | 猴子偷玉米 |
-| ------- | -------- | ----- |
-| 对于 OOP  | 属性       | 方法    |
-| 对于 Java | 实例变量     | 函数    |
+| --------- | ------------ | ---------- |
+| 对于 OOP  | 属性         | 方法       |
+| 对于 Java | 实例变量     | 函数       |
 
 建立以下 两个文件：
 
@@ -80,7 +80,7 @@ public class Dog {
             System.out.println("bark. bark.");
         } else {
             System.out.println("woof!");
-        }    
+        }
     }
 }
 ```
@@ -124,6 +124,7 @@ Main 函数长的像这样：
 - `void`：它没有返回类型。
 - `main`：这是方法的名称。
 - `String[] args`：这是传递给 main 方法的参数。
+
 ### 命令行参数
 
 `String[] args` 意味着可以在命令行中给 main 函数传入多个参数。

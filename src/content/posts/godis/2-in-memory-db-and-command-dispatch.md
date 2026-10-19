@@ -3,9 +3,9 @@ title: 用 Go 实现 Redis（二）：用 map 实现内存数据库与命令分�
 published: 2026-09-01 10:00:00+08:00
 description: 本文是「用 Go 实现 Redis」系列的第二篇。我们先用 map 与读写锁实现一个简单的内存数据库，再用 Object 统一不同类型的数据，最后通过命令注册表，把 RESP 请求分发到对应的命令处理函数。
 tags:
-- Go
-- Redis
-- 数据库
+  - Go
+  - Redis
+  - 数据库
 category: 后端与系统
 draft: false
 ---

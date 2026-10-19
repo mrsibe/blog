@@ -3,8 +3,8 @@ title: HTTP 请求方法：GET、POST、PUT 与幂等性
 published: 2026-04-15 17:16:00+08:00
 description: 整理常见 HTTP 请求方法的标准语义：GET、HEAD、POST、PUT、DELETE、PATCH 和 OPTIONS 各自的用途，以及安全与幂等这两个属性在真实工程中意味着什么。
 tags:
-- HTTP
-- 后端基础
+  - HTTP
+  - 后端基础
 category: 后端与系统
 draft: false
 ---

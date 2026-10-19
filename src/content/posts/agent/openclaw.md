@@ -3,9 +3,9 @@ title: 从 OpenClaw 到 Hermes Agent：我对记忆、Skill 和 Agent 架构的�
 published: 2026-04-17 06:00:00+08:00
 description: 用了 OpenClaw 和 Hermes Agent 一段时间后，我重新整理了记忆、Skill、工具调用与执行环境之间的关系，并结合两者的设计差异，谈谈我对 Agent 模块整合方式和未来演进路线的一些理解。
 tags:
-- Agent
-- OpenClaw
-- AI
+  - Agent
+  - OpenClaw
+  - AI
 category: AI 与 Agent
 draft: false
 ---
@@ -37,8 +37,8 @@ OpenClaw 火的重要原因就是它可以接入到各种 IM 聊天工具里，�
 
 在 OpenClaw 之前，大家聊的是：
 
- - 你用了什么 MCP？
- - 你用了什么 skill？
+- 你用了什么 MCP？
+- 你用了什么 skill？
 
 这个时候，大家疯狂魔改自己的 Agent，已经出现了基于 RAG 的记忆系统、网络搜索工具和 Deep Research 工作流等工具，或者说 Agent 功能模块、设计思想。但是大家并不明确：如果你要做一个非常像人一样的 Agent，到底需要哪些模块？
 

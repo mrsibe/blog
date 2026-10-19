@@ -3,9 +3,9 @@ title: 我用 Headscale 连接宿舍与外部设备
 published: 2026-04-13 10:00:00+08:00
 description: 记录我用 Headscale 搭建自建内网穿透方案的过程：比较常见方案的取舍，说明为什么选择 Headscale，以及如何为宿舍 NAS 部署服务端并用 Tailscale 客户端连接不同设备。
 tags:
-- Tailscale
-- NAS
-- 网络
+  - Tailscale
+  - NAS
+  - 网络
 category: 后端与系统
 draft: false
 ---

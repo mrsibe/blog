@@ -3,9 +3,9 @@ title: 终端、Shell 与内核之间是什么关系？
 published: 2025-12-28 15:59:00+08:00
 description: 从一次命令输入开始，梳理终端模拟器、Shell、系统调用与内核之间的关系：内核如何管理系统资源、Shell 如何读取并执行命令，以及我们为什么依然需要终端这个黑窗口。
 tags:
-- 终端
-- Shell
-- 操作系统
+  - 终端
+  - Shell
+  - 操作系统
 category: 开发工具
 draft: false
 ---

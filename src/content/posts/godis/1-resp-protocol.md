@@ -3,9 +3,9 @@ title: 用 Go 实现 Redis（一）：RESP2 协议的实现
 published: 2026-08-31 10:00:00+08:00
 description: 本文是「用 Go 实现 Redis」系列的第一篇，主要讨论 RESP2 协议（Redis Serialization Protocol）。我们先从一条命令的传输过程讲起，再介绍 RESP2 的五种基础类型，最后给出 Parser 解析器和 Writer 序列化器的实现。
 tags:
-- Go
-- Redis
-- 网络
+  - Go
+  - Redis
+  - 网络
 category: 后端与系统
 draft: false
 ---

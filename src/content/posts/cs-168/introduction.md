@@ -3,8 +3,8 @@ title: CS 168 | 导论
 published: 2025-10-07 21:31:58+08:00
 description: 我的 Berkeley CS 168 计算机网络学习笔记开篇：从互联网的基本结构讲起，梳理分层模型、协议、报头与端到端原则，帮助理解网络设计背后的取舍。
 tags:
-- 网络
-- 公开课
+  - 网络
+  - 公开课
 category: 课程笔记
 draft: false
 ---

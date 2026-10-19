@@ -3,9 +3,9 @@ title: CS 61B | 导论
 published: 2025-10-24 15:30:00+08:00
 description: 开始学习 Berkeley CS 61B 时的准备记录：整理课程定位、推荐的学习方法与节奏、常用学习资源，以及本地 Java 开发环境的搭建过程。
 tags:
-- Java
-- 数据结构
-- 公开课
+  - Java
+  - 数据结构
+  - 公开课
 category: 课程笔记
 draft: false
 ---
@@ -38,7 +38,7 @@ CS 61B 已经开展多年，每年都有大量的课件和资料流传下来。�
 
 还有，CS 61B 的 Lab 和 HW 支持在线评测，只需要在 Gradescope 平台上上传代码压缩包或者自己的 GitHub 仓库即可（太酷啦！）。
 
-###  学习资源 
+### 学习资源
 
 - 官方网站：[Main \| CS 61B Spring 2021](https://sp21.datastructur.es/)
 - Gradescope 评测平台：[Gradescope](https://www.gradescope.com/)

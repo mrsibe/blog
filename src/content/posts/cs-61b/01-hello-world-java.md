@@ -3,8 +3,8 @@ title: CS 61B | Hello World Java
 published: 2025-11-03 10:47:08+08:00
 description: CS 61B 学习笔记：从 Hello World 和命令行入口开始，熟悉 Java 程序的编译与运行流程，并整理变量、循环、强类型语言和函数定义等基础语法。
 tags:
-- Java
-- 公开课
+  - Java
+  - 公开课
 category: 课程笔记
 draft: false
 ---
@@ -35,7 +35,7 @@ public class HelloWorld {
 ```bash
 $ javac HelloWorld.java  # 1. javac指令编译
 $ java HelloWorld        # 2. java指令运行
-Hello World! 
+Hello World!
 ```
 
 ## 变量和循环
@@ -57,7 +57,7 @@ public class HelloNumbers {
 ```bash
 $ javac HelloNumbers.java
 $ java HelloNumbers
-0 1 2 3 4 5 6 7 8 9 
+0 1 2 3 4 5 6 7 8 9
 ```
 
 这里主要是区分 `System.out.println` 和 `System.out.print` 的区别：`System.out.println` 会换行， `System.out.print` 则不换行。
@@ -84,7 +84,7 @@ public class HelloNumbers {
 编译后会显示：
 
 ```bash
-$ javac HelloNumbers.java 
+$ javac HelloNumbers.java
 HelloNumbers.java:9: error: incompatible types: String cannot be converted to int
         x = "horse";
                 ^
