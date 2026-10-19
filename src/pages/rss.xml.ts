@@ -67,22 +67,34 @@ const GET = async (context: AstroGlobal) => {
     title: config.title,
     description: config.description,
     site: import.meta.env.SITE,
+    customData: `<language>zh-CN</language>`,
     items: await Promise.all(
-      allPostsByDate.map(async (post) => ({
-        pubDate: post.data.publishDate,
-        link: `/blog/${post.id}`,
-        // `pubDate` intentionally stays on `publishDate` so aggregators do not re-flow an
-        // edited post as new. `atom:updated` lets readers that support it detect the edit.
-        customData: `<h:img src="${typeof post.data.heroImage?.src === 'string' ? post.data.heroImage?.src : post.data.heroImage?.src.src}" />
-          <enclosure url="${typeof post.data.heroImage?.src === 'string' ? post.data.heroImage?.src : post.data.heroImage?.src.src}" />${
+      allPostsByDate.map(async (post) => {
+        const heroImage = post.data.heroImage?.src
+        const imageUrl = heroImage
+          ? typeof heroImage === 'string'
+            ? heroImage
+            : heroImage.src
+          : ''
+
+        return {
+          pubDate: post.data.publishDate,
+          link: `/blog/${post.id}`,
+          // `pubDate` intentionally stays on `publishDate` so aggregators do not re-flow an
+          // edited post as new. `atom:updated` lets readers that support it detect the edit.
+          customData: [
+            // Only advertise an image when the post actually has one
+            imageUrl ? `<h:img src="${imageUrl}" />\n<enclosure url="${imageUrl}" />` : '',
             post.data.updatedDate
-              ? `
-          <atom:updated>${post.data.updatedDate.toISOString()}</atom:updated>`
+              ? `<atom:updated>${post.data.updatedDate.toISOString()}</atom:updated>`
               : ''
-          }`,
-        content: await renderContent(post, siteUrl),
-        ...post.data
-      }))
+          ]
+            .filter(Boolean)
+            .join('\n'),
+          content: await renderContent(post, siteUrl),
+          ...post.data
+        }
+      })
     )
   })
 }

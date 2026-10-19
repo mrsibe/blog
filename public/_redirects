@@ -1,0 +1,10 @@
+# Redirects from the old Fuwari site to the astro-pure URLs.
+# https://developers.cloudflare.com/pages/configuration/redirects/
+
+/posts/* /blog/:splat 301
+/archive/ /archives 301
+/archive /archives 301
+/friends/ /links 301
+/friends /links 301
+/2/ /blog/2 301
+/3/ /blog/3 301

@@ -1,153 +1,81 @@
-# Astro Theme Pure
+# 西贝的代码宇宙
 
-English | [简体中文](./README-zh-CN.md)
+个人博客。记录后端、分布式系统、AI 与开源项目，也写天文和业余无线电。
 
-A simple, fast and powerful blog & document theme built by Astro.
+站点：<https://mrsibe.top> · 友链申请：[Issue #1](https://github.com/MrSibe/blog/issues/1)
 
-[![GitHub deployments](https://img.shields.io/github/deployments/cworld1/astro-theme-pure/production?style=flat&logo=vercel&label=vercel)](https://astro-pure.js.org/)
-[![NPM Version](https://img.shields.io/npm/v/astro-pure?logo=npm&style=flat)](https://www.npmjs.com/package/astro-pure)
-[![GitHub Release](https://img.shields.io/github/v/release/cworld1/astro-theme-pure?include_prereleases&style=flat&label=template)](https://github.com/cworld1/astro-theme-pure/releases)
-[![GitHub License](https://img.shields.io/github/license/cworld1/astro-theme-pure?style=flat)](https://github.com/cworld1/astro-theme-pure/blob/main/LICENSE)
+## 技术栈
 
-![image](./.github/assets/header.webp)
-![image](./.github/assets/body.webp)
+- [Astro](https://astro.build) 6 + [astro-theme-pure](https://github.com/cworld1/astro-theme-pure)
+- 包管理与脚本：bun
+- 搜索：[Pagefind](https://pagefind.app/)（构建时生成索引）
+- 图表：Mermaid（浏览器本地渲染，无需外部服务）
+- 公式：KaTeX
+- 文章分享图：`astro-og-canvas`，构建时按文章生成 `/og/<文章路径>.png`
+- 中文字体：Noto Sans SC Variable（[Fontsource](https://fontsource.org/fonts/noto-sans-sc) 自托管，OFL 许可）
+- 部署：Cloudflare Pages（静态输出）
 
-> [!NOTE]
-> Known issues: Header & customize options is still under development (template exposed still).
+## 本地开发
 
-## Introduction
-
-Checkout [Demo Site →](https://astro-pure.js.org/)
-
-### :fire: Features
-
-- [x] :rocket: Fast & high performance
-- [x] :star: Simple & clean design
-- [x] :iphone: Responsive design
-- [x] :mag: Full-site search built with [pagefind](https://pagefind.app/)
-- [x] :world_map: Sitemap & RSS feed
-- [x] :spider_web: SEO-friendly
-- [x] :book: TOC (table of contents)
-- [x] :framed_picture: Dynamic open graph generation for posts
-- [x] :framed_picture: Mediumzoom lightbox for images
-
-### :package: Components
-
-Theme includes a lot of components, which can not only be used in the theme, but also in other astro projects.
-
-> For other astro projects, UnoCSS is required. See [Package README](https://github.com/cworld1/astro-theme-pure/blob/main/packages/pure/README.md#use-with-common-astro-project) for more details.
-
-- Basic components: `Aside`, `Tabs`, `Timeline`, `Steps`, `Spoiler`...
-- Advanced components: `GithubCard`, `LinkPreview`, `Quote`, `QRCode`...
-
-### :white_check_mark: Lighthouse score
-
-[![lighthouse-score](./.github/assets/lighthouse-score.png)](https://pagespeed.web.dev/analysis/https-cworld-top/o229zrt5o4?form_factor=mobile&hl=en)
-
-## Documentation
-
-[Docs](https://astro-pure.js.org/docs) | [Showcase](https://github.com/cworld1/astro-theme-pure/issues/10)
-
-## Package
-
-See [astro-theme-pure](https://www.npmjs.com/package/astro-pure) on npm.
-
-## Local development
-
-### Environment requirements
-
-> [!WARNING]
-> Astro 6.0+ requires Node.js 22.12.0 or newer. Odd-numbered Node.js versions such as 23 are not supported by Astro.
-
-You can choose one of the following methods for project development:
-
-- [Bun](https://bun.com/get)
-- [Node.js](https://nodejs.org/)
-
-For deployment methods using container like [Docker](https://docs.docker.com/get-started/get-docker) & [Docker Compose](https://docs.docker.com/compose/install), please refer the documention [Using Docker Compose](https://astro-pure.js.org/docs/setup/using-docker-compose).
-
-### Getting started
-
-1. Clone the repository and enter the directory:
-
-   ```shell
-   git clone https://github.com/cworld1/astro-theme-pure.git
-   cd astro-theme-pure
-   ```
-
-   Edit `src/site.config.ts` to customize the site.
-
-2. Install dependencies:
-
-   ```shell
-   bun install
-   ```
-
-3. Start the development server:
-
-   ```shell
-   bun dev
-   # or
-   pnpm dev
-   # or
-   yarn run dev
-   # or
-   npm run dev
-   ```
-
-   The development server runs at <http://localhost:4321> by default.
-
-### Creating a new blog article
-
-After setting up either development environment, you can create a new blog article:
-
-```shell
-bun pure new
+```bash
+bun install
+bun run dev        # http://localhost:4321
+bun run build      # astro-pure check + astro check + astro build
+bun run preview    # 预览构建产物
 ```
 
-## Deployment
+## 写文章
 
-### Manual deployment
+文章放在 `src/content/blog/`，**文件路径即 URL**：`godis/1-resp-protocol.md` → `/blog/godis/1-resp-protocol`。
 
-Build the production site into the `./dist` directory:
-
-```shell
-bun run build
+```bash
+bun run pure new <post-slug>
 ```
 
-Once the build is complete, the generated static files will be located in the `./dist` directory. You can deploy this directory to any platform that supports static site hosting.
+frontmatter 必填 `title`、`description`、`publishDate`，可选 `updatedDate`、`tags`、`draft`、`heroImage`、`pin`。
 
-Preview the production build locally:
+站点配置在 `src/site.config.ts`（标题、导航、页脚、友链申请信息等）。
 
-```shell
-bun preview
+没有评论系统：`integ.waline.enable` 保持 `false`。
+
+## 图表与分享图
+
+### Mermaid
+
+文章中使用 `mermaid` 代码块即可生成流程图、架构图和时序图：
+
+````markdown
+```mermaid
+flowchart LR
+    A[写文章] --> B[Astro 构建] --> C[发布博客]
 ```
+````
 
-### Static hosting platforms
+图表使用适配明暗背景的中性主题，渲染在浏览器本地完成。
 
-You can deploy your blog to any static site hosting platform.
+### 自动 OG 图片
 
-- Refer to the official [Astro Deployment Guide](https://docs.astro.build/en/guides/deploy/) for specific deployment methods.
-- Depending on the deployment platform you choose, you may need to modify the `astro.config.ts` configuration file in the project.
+构建时为每篇已发布文章生成 `/og/<文章路径>.png`（1200 × 630），并写入 Open Graph、Twitter Card。中文字体随仓库提供（`src/assets/fonts/NotoSansSC-Regular.otf`，来自 [Noto CJK](https://github.com/notofonts/noto-cjk)，许可证见同目录 `OFL.txt`）。站点默认分享图由 `scripts/make-social-card.mjs` 生成。
 
-|                                                                        Vercel                                                                         |                                                                              Netlify                                                                               |
-| :---------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fcworld1%2Fastro-theme-pure) | [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/cworld1/astro-theme-pure) |
+## 死链检查
 
-## Contributions
+[Check Links 工作流](.github/workflows/links.yml) 使用 Lychee 检查文章与 README 中的外部 HTTP(S) 链接：内容变更时运行，每周一 UTC 02:00 定时运行，也可手动触发。失效链接会使检查失败，报告显示在该次运行的 Job Summary 中。
 
-To spend more time coding and less time fiddling with whitespace, this project uses code conventions and styles to encourage consistency. Code with a consistent style is easier (and less error-prone!) to review, maintain, and understand.
+配置位于 `lychee.toml`；仅排除示例域名与私网地址，不会把 403 / 429 等错误直接当作成功。新增排除项前应先确认是站点反爬限制，而非真正失效。
 
-## Thanks
+## 收录与部署
 
-- [Astro Cactus](https://github.com/chrismwilliams/astro-theme-cactus)
-- [Astro Resume](https://github.com/srleom/astro-theme-resume)
-- [Starlight](https://github.com/withastro/starlight)
+- `public/_redirects`：旧站（Fuwari）URL 到新 URL 的 301 映射。
+- `public/_headers`：CDN 缓存策略。
+- `public/1383de5cca6bb0c559a90d754e7ec30a.txt`：IndexNow 密钥，[IndexNow 工作流](.github/workflows/indexnow.yml) 在部署后提交 `sitemap-0.xml`。
 
-Other third party references are on [Docs#Contributions](https://astro-pure.js.org/docs/advanced/about). Appreciate for all open source libraries.
+## 迁移记录
 
-## License
+本站由旧的 Fuwari 站点迁移而来，旧仓库历史保留在 `legacy-fuwari` 分支。
 
-This project is licensed under the Apache 2.0 License.
+- `scripts/migrate-old-blog.mjs`：把旧站 `src/content/posts/**` 转成新站的 frontmatter（`published` → `publishDate`、`category` 并入 `tags`、`Java` 代码围栏改小写等）。
+- `scripts/make-social-card.mjs`：生成站点默认分享图。
 
-[![Star History Chart](https://star-history.dera.page/svg?repos=cworld1/astro-theme-pure&type=Date)](https://star-history.dera.page/#cworld1/astro-theme-pure&Date)
+## 许可
+
+博客内容版权归作者所有（CC BY-NC-SA 4.0）；站点基于 MIT 许可的 [astro-theme-pure](https://github.com/cworld1/astro-theme-pure) 构建。
