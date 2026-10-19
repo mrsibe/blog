@@ -17,6 +17,8 @@
 
 ## 本地开发
 
+> 工具链统一使用 Bun 1.4.3（`packageManager` 字段已固定）。`bun.lock` 是 lockfile v2 格式，低于 Bun 1.3 的版本无法解析。
+
 ```bash
 bun install
 bun run dev        # http://localhost:4321
@@ -64,6 +66,11 @@ flowchart LR
 配置位于 `lychee.toml`；仅排除示例域名与私网地址，不会把 403 / 429 等错误直接当作成功。新增排除项前应先确认是站点反爬限制，而非真正失效。
 
 ## 收录与部署
+
+部署在 Cloudflare Pages（静态输出）。构建前需要在 Pages 项目里设置 Bun 版本，否则会用构建镜像自带的 Bun 1.2.15，无法解析 lockfile v2：
+
+> Workers & Pages → 该项目 → **Settings → Environment variables** → 添加构建变量 `BUN_VERSION=1.4.3`（Production 与 Preview 都加），然后重新部署。
+> Bun 的版本只能用 `BUN_VERSION` 覆盖，Cloudflare 不支持通过项目内文件固定 Bun 版本。
 
 - `public/_redirects`：旧站（Fuwari）URL 到新 URL 的 301 映射。
 - `public/_headers`：CDN 缓存策略。
