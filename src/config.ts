@@ -10,6 +10,13 @@ export const themeConfig: ThemeConfig = {
     language: 'zh-CN' // Default language
   },
 
+  // SOCIAL LINKS ////////////////////////////////////////////////////////////////////////////////////////
+  social: {
+    github: 'https://github.com/mrsibe',
+    x: 'https://x.com/your-handle', // TODO: 换成自己的 X 主页
+    rss: true // Show RSS link in footer
+  },
+
   // GENERAL SETTINGS ////////////////////////////////////////////////////////////////////////////////////
   general: {
     contentWidth: '41.25rem', // Content area width (41.25rem = 660px)

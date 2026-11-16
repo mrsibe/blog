@@ -37,10 +37,18 @@ export interface PostSettings {
   linkCard: boolean
 }
 
+// Social links configuration type
+export interface SocialLinks {
+  github?: string
+  x?: string
+  rss?: boolean
+}
+
 // Theme configuration type
 export interface ThemeConfig {
   site: SiteInfo
   general: GeneralSettings
   date: DateSettings
   post: PostSettings
+  social?: SocialLinks
 }
