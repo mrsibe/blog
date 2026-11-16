@@ -13,7 +13,7 @@ export const themeConfig: ThemeConfig = {
   // SOCIAL LINKS ////////////////////////////////////////////////////////////////////////////////////////
   social: {
     github: 'https://github.com/mrsibe',
-    x: 'https://x.com/your-handle', // TODO: 换成自己的 X 主页
+    x: 'https://x.com/Mr_Sibei',
     rss: true // Show RSS link in footer
   },
 
