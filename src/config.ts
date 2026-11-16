@@ -12,10 +12,10 @@ export const themeConfig: ThemeConfig = {
 
   // GENERAL SETTINGS ////////////////////////////////////////////////////////////////////////////////////
   general: {
-    contentWidth: '35rem', // Content area width
+    contentWidth: '41.25rem', // Content area width (41.25rem = 660px)
     centeredLayout: true, // Use centered layout (false for left-aligned)
     themeToggle: true, // Show theme toggle button (uses system theme by default)
-    postListDottedDivider: false, // Show dotted divider in post list
+    postListDottedDivider: true, // Show dotted divider in post list
     footer: true, // Show footer
     fadeAnimation: true // Enable fade animations
   },

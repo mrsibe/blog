@@ -8,11 +8,14 @@
   /* Typography */
   --sans: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
   --serif: Besley, Baskerville, Georgia, 'Times New Roman', Times, serif;
+  --reading:
+    'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, 'Noto Serif CJK SC',
+    'Source Han Serif SC', 'Songti SC', SimSun, serif;
   --mono: 'SF Mono', SFMono-Regular, ui-monospace, monospace;
 
-  --font-size-s: 0.8125rem;
-  --font-size-m: 0.9375rem;
-  --font-size-l: 1.0625rem;
+  --font-size-s: 0.875rem;
+  --font-size-m: 1.0625rem;
+  --font-size-l: 1.1875rem;
 
   --font-weight-light: 350;
   --font-weight-regular: 400;
@@ -106,8 +109,7 @@ html {
 }
 
 body {
-  font-family: var(--sans);
-  font-feature-settings: 'ss03' 1;
+  font-family: var(--reading);
   font-size: var(--font-size-m);
   line-height: 1.75;
   color: var(--text-primary);
