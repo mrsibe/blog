@@ -2,15 +2,10 @@
 title: 'About'
 ---
 
-<!--
-This content will be displayed at the top of the index page.
-You can leave this empty if you don’t want to show any content.
--->
+我是啊啊啊啊西贝，一名计算机专业的学生，也是一名热衷于探索技术的开发者。
 
-A static blog theme based on [Astro](https://astro.build), _designed for clarity and focus_.
+我的主要方向是后端开发与分布式系统，最喜欢的编程语言是 Go，也会一些 Java。不过我经常 Vibe Coding 一些我认为有趣的全栈项目。
 
-With a deliberately minimal design, this layout ensures your content takes center stage. It's built for flexibility, offering customization options that honor its clean and elegant aesthetic.
+我对 AI 领域同样充满兴趣，喜欢在理论与实践之间反复折腾。从尝试手搓大语言模型、模型微调，到使用 vLLM、SGLang 部署模型，都有过一些探索。除此之外，我也喜欢关注新技术、新产品，以及它们背后的设计理念，希望在不断尝试中形成自己的理解与品味。
 
-Effortlessly share your thoughts in a calm & dustless space.
-
-Check posts for details and view source on [GitHub](https://github.com/the3ash/astro-chiri).
+这个博客主要用来记录我的学习过程、技术探索、实验心得，以及偶尔冒出来的奇思妙想和碎碎念。
