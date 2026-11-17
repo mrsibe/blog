@@ -17,6 +17,7 @@ const socialLinks = [
         &copy;
         {today.getFullYear()}
       </span>
+      <span class="separator" aria-hidden="true">·</span>
       {themeConfig.site.author}
     </div>
     {socialLinks.length > 0 && (
@@ -109,6 +110,11 @@ const socialLinks = [
 
   .copyright .date {
     opacity: 1;
+  }
+
+  .copyright .separator {
+    margin: 0 0.25rem;
+    opacity: 0.5;
   }
 
   footer a {
