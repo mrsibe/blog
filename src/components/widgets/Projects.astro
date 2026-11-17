@@ -20,7 +20,11 @@ const repos = (themeConfig.projects ?? []).map((repo) => {
         data-repo={repo}
       >
         <div class="gc-title-bar">
-          <div class="gc-owner-avatar" style="background-size: cover; background-position: center;" aria-hidden="true" />
+          <div
+            class="gc-owner-avatar"
+            style="background-size: cover; background-position: center;"
+            aria-hidden="true"
+          />
           <span class="gc-repo-title">
             <span>
               {owner}

@@ -14,7 +14,9 @@ const recentPosts = (await getSortedFilteredPosts()).slice(0, 5)
   <Projects />
   <main>
     <PostList posts={recentPosts} />
-    <a class="more" href="/posts/">查看全部文章 →</a>
+    <a class="more" href="/posts/">
+      查看全部文章 →
+    </a>
   </main>
 </IndexLayout>
 

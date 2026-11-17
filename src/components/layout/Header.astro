@@ -7,10 +7,16 @@ const path = Astro.url.pathname
 
 <header>
   <nav>
-    <a class="site-title" href="/">{themeConfig.site.title}</a>
+    <a class="site-title" href="/">
+      {themeConfig.site.title}
+    </a>
     <div class="nav-links">
-      <a href="/posts/" aria-current={path.startsWith('/posts') ? 'page' : undefined}>文章</a>
-      <a href="/friends/" aria-current={path.startsWith('/friends') ? 'page' : undefined}>友情链接</a>
+      <a href="/posts/" aria-current={path.startsWith('/posts') ? 'page' : undefined}>
+        文章
+      </a>
+      <a href="/friends/" aria-current={path.startsWith('/friends') ? 'page' : undefined}>
+        友情链接
+      </a>
       {themeConfig.general.themeToggle && <ThemeToggle />}
     </div>
   </nav>
