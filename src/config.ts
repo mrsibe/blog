@@ -17,6 +17,9 @@ export const themeConfig: ThemeConfig = {
     rss: true // Show RSS link in footer
   },
 
+  // PROJECTS ////////////////////////////////////////////////////////////////////////////////////////////
+  projects: ['MrSibe/KnowNote', 'MrSibe/mira'],
+
   // GENERAL SETTINGS ////////////////////////////////////////////////////////////////////////////////////
   general: {
     contentWidth: '41.25rem', // Content area width (41.25rem = 660px)

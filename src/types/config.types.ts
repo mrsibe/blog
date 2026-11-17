@@ -47,6 +47,7 @@ export interface SocialLinks {
 // Theme configuration type
 export interface ThemeConfig {
   site: SiteInfo
+  projects?: string[]
   general: GeneralSettings
   date: DateSettings
   post: PostSettings
