@@ -44,10 +44,19 @@ export interface SocialLinks {
   rss?: boolean
 }
 
+// Friend link type
+export interface FriendLink {
+  name: string
+  url: string
+  description?: string
+  avatar?: string
+}
+
 // Theme configuration type
 export interface ThemeConfig {
   site: SiteInfo
   projects?: string[]
+  friends?: FriendLink[]
   general: GeneralSettings
   date: DateSettings
   post: PostSettings

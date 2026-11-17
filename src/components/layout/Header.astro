@@ -1,12 +1,18 @@
 ---
 import { themeConfig } from '@/config'
 import ThemeToggle from '@/components/ui/ThemeToggle.astro'
+
+const path = Astro.url.pathname
 ---
 
 <header>
   <nav>
-    <a href="/">{themeConfig.site.title}</a>
-    {themeConfig.general.themeToggle && <ThemeToggle />}
+    <a class="site-title" href="/">{themeConfig.site.title}</a>
+    <div class="nav-links">
+      <a href="/posts/" aria-current={path.startsWith('/posts') ? 'page' : undefined}>文章</a>
+      <a href="/friends/" aria-current={path.startsWith('/friends') ? 'page' : undefined}>友情链接</a>
+      {themeConfig.general.themeToggle && <ThemeToggle />}
+    </div>
   </nav>
 </header>
 <style>
@@ -17,6 +23,7 @@ import ThemeToggle from '@/components/ui/ThemeToggle.astro'
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
   }
   header a {
     font-weight: var(--font-weight-bold);
@@ -24,5 +31,25 @@ import ThemeToggle from '@/components/ui/ThemeToggle.astro'
     text-decoration: none;
     min-width: 3rem;
     display: inline-block;
+  }
+  .site-title {
+    flex-shrink: 0;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .nav-links a {
+    font-weight: var(--font-weight-regular);
+    color: var(--text-secondary);
+    min-width: 0;
+    transition: color 0.15s ease-out;
+  }
+  .nav-links a:hover {
+    color: var(--text-primary);
+  }
+  .nav-links a[aria-current='page'] {
+    color: var(--text-primary);
   }
 </style>

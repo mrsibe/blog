@@ -20,6 +20,34 @@ export const themeConfig: ThemeConfig = {
   // PROJECTS ////////////////////////////////////////////////////////////////////////////////////////////
   projects: ['MrSibe/KnowNote', 'MrSibe/mira'],
 
+  // FRIEND LINKS ////////////////////////////////////////////////////////////////////////////////////////
+  friends: [
+    {
+      name: '梦辰の小窝',
+      url: 'https://mc.mimeng.top',
+      description: 'Eagerly Anticipating Our Reunion',
+      avatar: '/avatars/9bb7c91140080689.avif'
+    },
+    {
+      name: "Soulter's Blog",
+      url: 'https://blog.soulter.top/',
+      description: 'The world is your canvas!',
+      avatar: '/avatars/27d6eae995c230b3.webp'
+    },
+    {
+      name: 'CAICAIIs.World',
+      url: 'https://caicaiis.cc/',
+      description: '愚者在月影之中怀抱虚妄',
+      avatar: '/avatars/cae73b6551263107.jpg'
+    },
+    {
+      name: 'Frederick',
+      url: 'https://frederick2313072.github.io/',
+      description: "Welcome to my Alter Ego's site!",
+      avatar: '/avatars/8ee4229623834829.png'
+    }
+  ],
+
   // GENERAL SETTINGS ////////////////////////////////////////////////////////////////////////////////////
   general: {
     contentWidth: '41.25rem', // Content area width (41.25rem = 660px)

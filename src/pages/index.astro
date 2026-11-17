@@ -6,13 +6,29 @@ import PostList from '@/components/widgets/PostList.astro'
 import { themeConfig } from '@/config'
 import { getSortedFilteredPosts } from '@/utils/draft'
 
-const posts = await getSortedFilteredPosts()
+const recentPosts = (await getSortedFilteredPosts()).slice(0, 5)
 ---
 
 <IndexLayout title={themeConfig.site.title} description={themeConfig.site.description}>
   <About />
   <Projects />
   <main>
-    <PostList posts={posts} />
+    <PostList posts={recentPosts} />
+    <a class="more" href="/posts/">查看全部文章 →</a>
   </main>
 </IndexLayout>
+
+<style>
+  .more {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: var(--font-size-s);
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.15s ease-out;
+  }
+
+  .more:hover {
+    color: var(--text-primary);
+  }
+</style>
