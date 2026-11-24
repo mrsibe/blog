@@ -358,7 +358,7 @@
   transform: translate(-45%, -55%);
   font-family: var(--sans);
   font-size: 10px;
-  font-weight: 650;
+  font-weight: var(--font-weight-bold);
   color: var(--text-primary);
   opacity: 0.55;
 }

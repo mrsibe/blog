@@ -42,6 +42,6 @@ export const { getStaticPaths, GET } = await OGImageRoute({
         families: ['Inter Variable', 'Noto Sans SC']
       }
     },
-    fonts: ['public/fonts/Inter.woff2', 'public/fonts/NotoSansSC-Regular.otf', 'public/fonts/NotoSansSC-Bold.otf']
+    fonts: ['public/fonts/Inter.woff2', 'assets/fonts/NotoSansSC-Regular.otf', 'assets/fonts/NotoSansSC-Bold.otf']
   })
 })
