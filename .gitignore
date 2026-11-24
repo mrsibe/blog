@@ -28,3 +28,6 @@ pnpm-debug.log*
 .netlify/
 
 *.tsbuildinfo
+
+# Font subsets are generated at build time (scripts/build-fonts.ts)
+public/fonts/*.woff2

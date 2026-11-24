@@ -5,8 +5,8 @@
   "license": "MIT",
   "packageManager": "pnpm@11.21.0",
   "scripts": {
-    "dev": "tsx scripts/update-link-metadata.ts && astro dev",
-    "build": "pnpm run typecheck && tsx scripts/update-link-metadata.ts && astro build",
+    "dev": "tsx scripts/build-fonts.ts && tsx scripts/update-link-metadata.ts && astro dev",
+    "build": "tsx scripts/build-fonts.ts && pnpm run typecheck && tsx scripts/update-link-metadata.ts && astro build",
     "typecheck": "pnpm run typecheck:ts && astro check",
     "typecheck:ts": "tsc --noEmit",
     "preview": "astro preview",
@@ -16,6 +16,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "new": "tsx scripts/new-post.ts",
+    "fonts": "tsx scripts/build-fonts.ts",
     "update-link-metadata": "tsx scripts/update-link-metadata.ts",
     "update-theme": "tsx scripts/update-theme.ts"
   },
@@ -53,6 +54,7 @@
     "globals": "^17.14.0",
     "prettier": "^3.10.1",
     "prettier-plugin-astro": "^1.1.2",
+    "subset-font": "^2.9.0",
     "tsx": "^4.23.15",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.72.2"
