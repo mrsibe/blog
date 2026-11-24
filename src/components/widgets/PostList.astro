@@ -60,14 +60,12 @@ const { posts } = Astro.props as PostListProps
 
     ul:hover a:hover .divider {
       background-color: var(--text-tertiary);
-      opacity: 0.75;
     }
     ul:hover a:hover .dotted-divider {
       color: var(--text-secondary);
     }
     ul:hover a:hover .date {
-      color: var(--text-secondary);
-      opacity: 1;
+      color: var(--text-primary);
     }
   }
 
@@ -104,7 +102,6 @@ const { posts } = Astro.props as PostListProps
   .date {
     margin: 0;
     color: var(--text-secondary);
-    opacity: 0.75;
     letter-spacing: var(--spacing-s);
     flex-shrink: 0;
     white-space: nowrap;
@@ -127,7 +124,6 @@ const { posts } = Astro.props as PostListProps
     height: 1.675rem;
     overflow: hidden;
     color: var(--text-tertiary);
-    opacity: 0.75;
   }
 
   .dotted-divider::after {
@@ -136,6 +132,6 @@ const { posts } = Astro.props as PostListProps
   }
 
   .placeholder {
-    height: 3rem;
+    height: var(--space-4);
   }
 </style>

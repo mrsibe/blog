@@ -68,8 +68,7 @@ const socialLinks = [
     font-weight: var(--font-weight-light);
     line-height: 1.75;
     color: var(--text-secondary);
-    opacity: 0.75;
-    margin-top: 4rem;
+    margin-top: var(--space-7);
   }
 
   .footer-content {
@@ -78,26 +77,24 @@ const socialLinks = [
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 0.5rem 1.25rem;
+    gap: var(--space-2) var(--space-5);
     width: 100%;
   }
 
   .social {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: var(--space-3);
   }
 
   .social a {
     display: inline-flex;
-    opacity: 0.75;
-    transition:
-      opacity 0.2s ease-out,
-      color 0.2s ease-out;
+    color: inherit;
+    transition: color 0.2s ease-out;
   }
 
   .social a:hover {
-    opacity: 1;
+    color: var(--text-primary);
   }
 
   .social svg {
@@ -111,12 +108,12 @@ const socialLinks = [
   }
 
   .copyright .date {
-    opacity: 1;
+    color: var(--text-secondary);
   }
 
   .copyright .separator {
-    margin: 0 0.25rem;
-    opacity: 0.5;
+    margin: 0 var(--space-1);
+    color: var(--text-tertiary);
   }
 
   footer a {

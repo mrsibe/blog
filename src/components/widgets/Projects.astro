@@ -10,7 +10,6 @@ const repos = (themeConfig.projects ?? []).map((repo) => {
 
 {repos.length > 0 && (
   <section class="projects">
-    <h2>项目</h2>
     {repos.map(({ owner, name, repo }) => (
       <a
         href={`https://github.com/${repo}`}
@@ -67,13 +66,13 @@ const repos = (themeConfig.projects ?? []).map((repo) => {
 
 <style>
   .projects {
-    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    margin-bottom: var(--section-gap);
   }
 
-  .projects h2 {
-    font-size: var(--font-size-s);
-    font-weight: var(--font-weight-regular);
-    color: var(--text-secondary);
-    margin-bottom: 0.5rem;
+  .projects > .gc-container {
+    margin: 0;
   }
 </style>

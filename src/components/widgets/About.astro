@@ -16,6 +16,14 @@ const { Content } = hasContent && aboutEntry ? await render(aboutEntry) : { Cont
 
 <style>
   .about:not(:empty) {
-    margin-bottom: 1.25rem;
+    margin-bottom: var(--section-gap);
+  }
+
+  .about > :global(:first-child) {
+    margin-top: 0;
+  }
+
+  .about > :global(:last-child) {
+    margin-bottom: 0;
   }
 </style>
