@@ -17,6 +17,9 @@
   --space-6: 2rem;
   --space-7: 3rem;
 
+  /* Top of the left gutter where fixed elements (back button, TOC) start */
+  --gutter-top: var(--space-7);
+
   /* Typography */
   --sans: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
   --serif: Besley, Baskerville, Georgia, 'Times New Roman', Times, serif;
@@ -27,7 +30,6 @@
   --font-size-m: 1.0625rem;
   --font-size-l: 1.25rem;
 
-  --font-weight-light: 350;
   --font-weight-regular: 400;
   --font-weight-bold: 500;
 
@@ -171,7 +173,7 @@ main {
 
 .date {
   margin: 0;
-  font-weight: var(--font-weight-light);
+  font-weight: var(--font-weight-regular);
   color: var(--text-secondary);
   flex-shrink: 0;
   letter-spacing: var(--spacing-s);

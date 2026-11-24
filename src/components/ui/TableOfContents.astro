@@ -312,7 +312,8 @@ const { toc = [] }: TOCProps = Astro.props
   .toc-container.fixed-position {
     opacity: 1;
     position: fixed;
-    top: 12rem;
+    /* Same gutter column as the back button, offset to clear the title block */
+    top: calc(var(--gutter-top) + var(--space-7) * 3);
     margin-top: 0;
     padding-left: 1rem;
     z-index: 10;
@@ -352,11 +353,10 @@ const { toc = [] }: TOCProps = Astro.props
     text-decoration: none;
     position: relative;
     padding-left: 0;
-    height: 1.125rem;
+    height: var(--space-5);
     width: 100%;
-    min-height: 1rem;
     font-size: 0;
-    line-height: 1.125rem;
+    line-height: var(--space-5);
     text-indent: 2rem;
     overflow: hidden;
     white-space: nowrap;
@@ -376,7 +376,7 @@ const { toc = [] }: TOCProps = Astro.props
     font-family: var(--sans);
     font-size: var(--font-size-s);
     letter-spacing: var(--spacing-m);
-    line-height: 1.125rem;
+    line-height: var(--space-5);
     color: var(--text-primary);
     opacity: 0;
     transition:
