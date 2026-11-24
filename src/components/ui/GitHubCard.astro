@@ -92,28 +92,39 @@
 </script>
 
 <style is:inline>
+  /* Row layout: used by the homepage project list (no chrome at rest) */
   .gc-container {
     display: block;
-    border: 0.5px solid var(--border);
-    border-radius: 8px;
-    padding: var(--space-4) var(--space-5) var(--space-3);
-    margin: var(--space-5) 0 var(--space-6);
+    padding: var(--space-2);
+    margin-inline: calc(-1 * var(--space-2));
+    border-radius: 4px;
     text-decoration: none;
     color: inherit;
     transition: background 0.2s ease-out;
-    background: var(--astro-code-background);
   }
 
   .gc-container:hover {
-    background: color-mix(in srgb, var(--selection) 75%, transparent);
+    background: var(--selection);
     text-decoration: none;
+  }
+
+  /* In-article embed keeps a subtle box so it separates from the prose */
+  .prose .gc-container {
+    padding: var(--space-4) var(--space-5) var(--space-3);
+    margin: var(--space-5) 0 var(--space-6);
+    border: 0.5px solid var(--border);
+    border-radius: 8px;
+    background: var(--astro-code-background);
+  }
+
+  .prose .gc-container:hover {
+    background: color-mix(in srgb, var(--selection) 75%, transparent);
   }
 
   .gc-title-bar {
     display: flex;
     align-items: center;
     gap: var(--space-3);
-    margin-bottom: var(--space-3);
   }
 
   .gc-owner-avatar {
@@ -129,6 +140,10 @@
     font-weight: var(--font-weight-regular);
     color: var(--text-primary);
     flex-grow: 1;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .gc-repo-title strong {
@@ -141,31 +156,38 @@
   }
 
   .gc-github-icon {
-    width: 1.5rem;
-    height: 1.5rem;
-    color: var(--text-primary);
+    width: 1rem;
+    height: 1rem;
+    color: var(--text-tertiary);
     flex-shrink: 0;
   }
 
   .gc-repo-description {
-    font-size: var(--font-size-m);
+    font-size: var(--font-size-s);
     color: var(--text-secondary);
-    margin: 0 0 var(--space-3) 0;
-    line-height: 1.4;
+    line-height: 1.5;
+    margin: var(--space-1) 0 0 calc(1.5rem + var(--space-3));
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .gc-info-bar {
     display: flex;
     align-items: center;
-    color: var(--text-secondary);
     gap: var(--space-1);
+    font-size: var(--font-size-s);
+    color: var(--text-secondary);
+    flex-shrink: 0;
   }
 
-  .gc-info-bar .gc-stars-count,
-  .gc-info-bar .gc-forks-count,
-  .gc-info-bar .gc-license-info {
-    margin-right: var(--space-3);
-    font-size: var(--font-size-s);
+  .gc-info-bar > span {
+    margin-right: var(--space-2);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .gc-info-bar > span:last-child {
+    margin-right: 0;
   }
 
   .gc-info-icon {
