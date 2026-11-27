@@ -1,5 +1,3 @@
-import type { CollectionEntry } from 'astro:content'
-
 // Reading time interface
 export interface ReadingTime {
   text: string
@@ -27,6 +25,12 @@ export interface ContentFeatures {
 }
 
 // PostList component props interface
+export interface PostListItem {
+  href: string
+  title: string
+  date?: Date
+}
+
 export interface PostListProps {
-  posts: CollectionEntry<'posts'>[]
+  items: PostListItem[]
 }

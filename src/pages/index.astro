@@ -6,14 +6,18 @@ import PostList from '@/components/widgets/PostList.astro'
 import { themeConfig } from '@/config'
 import { getSortedFilteredPosts } from '@/utils/draft'
 
-const recentPosts = (await getSortedFilteredPosts()).slice(0, 5)
+const items = (await getSortedFilteredPosts()).slice(0, 5).map((post) => ({
+  href: `/${post.id}/`,
+  title: post.data.title,
+  date: post.data.pubDate
+}))
 ---
 
 <IndexLayout title={themeConfig.site.title} description={themeConfig.site.description}>
   <About />
   <Projects />
   <main>
-    <PostList posts={recentPosts} />
+    <PostList {items} />
     <a class="more" href="/posts/">
       查看全部文章 →
     </a>

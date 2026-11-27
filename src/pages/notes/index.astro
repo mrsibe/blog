@@ -1,0 +1,16 @@
+---
+import IndexLayout from '@/layouts/IndexLayout.astro'
+import PostList from '@/components/widgets/PostList.astro'
+import { themeConfig } from '@/config'
+import { getSortedFilteredNotes } from '@/utils/notes'
+
+const notes = await getSortedFilteredNotes()
+const items = notes.map((note) => ({ href: `/notes/${note.id}/`, title: note.data.title }))
+---
+
+<IndexLayout title={`笔记 · ${themeConfig.site.title}`} description={themeConfig.site.description}>
+  <main>
+    <h1 class="sr-only">笔记</h1>
+    <PostList {items} />
+  </main>
+</IndexLayout>

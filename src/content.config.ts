@@ -15,6 +15,15 @@ const posts = defineCollection({
     })
 })
 
+const notes = defineCollection({
+  // Load my long-form study notes in the `src/content/notes/` directory.
+  loader: glob({ base: './src/content/notes', pattern: '**/*.md' }),
+  schema: () =>
+    z.object({
+      title: z.string()
+    })
+})
+
 const about = defineCollection({
   // Load Markdown files in the `src/content/about/` directory.
   loader: glob({ base: './src/content/about', pattern: '**/*.md' }),
@@ -22,4 +31,4 @@ const about = defineCollection({
   schema: z.object({})
 })
 
-export const collections = { posts, about }
+export const collections = { posts, notes, about }

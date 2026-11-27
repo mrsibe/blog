@@ -8,7 +8,7 @@ export interface TOCProps {
 // Post layout props interface (generic, not tied to specific data source)
 export interface PostLayoutProps {
   title: string
-  pubDate: Date
+  pubDate?: Date
   image?: string
   readingTime?: ReadingTime
   toc?: TOCItem[]

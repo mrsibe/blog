@@ -4,12 +4,16 @@ import PostList from '@/components/widgets/PostList.astro'
 import { themeConfig } from '@/config'
 import { getSortedFilteredPosts } from '@/utils/draft'
 
-const posts = await getSortedFilteredPosts()
+const items = (await getSortedFilteredPosts()).map((post) => ({
+  href: `/${post.id}/`,
+  title: post.data.title,
+  date: post.data.pubDate
+}))
 ---
 
 <IndexLayout title={`文章 · ${themeConfig.site.title}`} description={themeConfig.site.description}>
   <main>
     <h1 class="sr-only">文章</h1>
-    <PostList posts={posts} />
+    <PostList {items} />
   </main>
 </IndexLayout>
